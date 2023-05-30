@@ -1,0 +1,176 @@
+{
+  "burgers": [
+    {
+      "id": 1,
+      "name": "The Binary Burger",
+      "description": "Enkel biff, cheddarost, lök, pickles, husets ketchup & senap. Ettor och nollor!",
+      "price": 80,
+      "image": "burger-1"
+    },
+    {
+      "id": 2,
+      "name": "The Infinite Loop",
+      "description": "Trippel biff, stekt tomat, dubbel cheddarost, rostad lök, lök, mayo. Håller dig mätt i all oändlighet.",
+      "price": 80,
+      "image": "burger-2"
+    },
+    {
+      "id": 3,
+      "name": "The Debugger's Delight",
+      "description": "Dubbel biff, dubbel cheddarost, isbergssallad, tomat, lök, pickles, mayo. Ger dig energi att lösa alla dina buggar.",
+      "price": 80,
+      "image": "burger-3"
+    },
+    {
+      "id": 4,
+      "name": "The Syntax Error Surprise",
+      "description": "Slumpvis kombinerade ingredienser i en överraskande kombination som är svår att identifiera.",
+      "price": 90,
+      "image": "burger-4"
+    },
+    {
+      "id": 5,
+      "name": "The CSS Cruncher",
+      "description": "Enkel biff, cheddarost, jalapeños, bifftomat, lökringar, smoky dressing. Mycket visuellt tilltalande.",
+      "price": 90,
+      "image": "burger-5"
+    },
+    {
+      "id": 6,
+      "name": "The Recursive Burger",
+      "description": "Trippel biff, trippel ost (cheddar & pepper jack), trippel mayo. Allt du älskar i en oändlig repetition.",
+      "price": 90,
+      "image": "burger-6"
+    },
+    {
+      "id": 7,
+      "name": "The Algorithmic Awesomeness",
+      "description": "Enkel biff, cheddarost, gullök, friterade champinjoner, mayo. Noga beräkning av ingrediens-kombination för bästa resultat.",
+      "price": 100,
+      "image": "burger-7"
+    },
+    {
+      "id": 8,
+      "name": "The HTML Hero",
+      "description": "Dubbel biff, chilli, mayo, rostad lök, rödlök, lökringar av cheddarost. En burgare med tydlig struktur.",
+      "price": 100,
+      "image": "burger-8"
+    },
+    {
+      "id": 9,
+      "name": "The API masterpiece",
+      "description": "Enkel biff, brioche-bröd, chilimayo, rödlök, cheddar ost, paprika. Ett RESTful mästerverk helt enkelt.",
+      "price": 100,
+      "image": "burger-9"
+    }
+  ],
+  "sides": [
+    {
+      "id": 1,
+      "name": "Helt vanliga pommes",
+      "description": "Inga konstigheter",
+      "price": 30,
+      "image": "side-1"
+    },
+    {
+      "id": 2,
+      "name": "Sötpotatispommes",
+      "description": "Krispiga pommes gjorda på sötpotatis",
+      "price": 40,
+      "image": "side-2"
+    }
+  ],
+  "drinks": [
+    {
+      "id": 1,
+      "name": "Milkshake",
+      "description": "Vi har bara choklad men trust me, det är värt det.",
+      "price": 50,
+      "image": "drink-1"
+    },
+    {
+      "id": 2,
+      "name": "Lemonad",
+      "description": "Läskande och svalkande.",
+      "price": 40,
+      "image": "drink-2"
+    },
+    {
+      "id": 3,
+      "name": "Sparkling tonic",
+      "description": "Jordgubb & vanilj. Otrolig kombination.",
+      "price": 40,
+      "image": "drink-3"
+    },
+    {
+      "id": 4,
+      "name": "Calpis Water",
+      "description": "Fancy vatten",
+      "price": 30,
+      "image": "drink-4"
+    },
+    {
+      "id": 5,
+      "name": "Tropical Energy Drink",
+      "description": "Kokos & Lime",
+      "price": 35,
+      "image": "drink-5"
+    }
+  ],
+  "meals": [
+    {
+      "id": 1,
+      "name": "The Binary Burger Meal",
+      "burgerId": 1,
+      "price": 110
+    },
+    {
+      "id": 2,
+      "name": "The Infinite Loop",
+      "burgerId": 2,
+      "price": 110
+    },
+    {
+      "id": 3,
+      "name": "The Debugger's Delight",
+      "burgerId": 3,
+      "price": 110
+    },
+    {
+      "id": 4,
+      "name": "The Syntax Error Surprise",
+      "burgerId": 4,
+      "price": 120
+    },
+    {
+      "id": 5,
+      "name": "The CSS Cruncher",
+      "burgerId": 5,
+      "price": 120
+    },
+    {
+      "id": 6,
+      "name": "The Recursive Burger",
+      "burgerId": 6,
+      "price": 120
+    },
+    {
+      "id": 7,
+      "name": "The Algorithmic Awesomeness",
+      "burgerId": 7,
+      "price": 130
+    },
+    {
+      "id": 8,
+      "name": "The HTML Hero",
+      "burgerId": 8,
+      "price": 130
+    },
+    {
+      "id": 9,
+      "name": "The API masterpiece",
+      "burgerId": 9,
+      "price": 130
+    }
+  ]
+}
