@@ -12,13 +12,13 @@ function Header() {
         <img style={{ maxWidth: "120px" }} src={logo} alt="bun drop logo" />
       </Link>
       <div className="header-links-container">
-        <NavLink exact to="/" activeClassName="active">
+        <NavLink to="/" activeclassname="active">
           <p className="header-link">Hem</p>
         </NavLink>
-        <NavLink exact to="/menu" activeClassName="active">
+        <NavLink to="/menu" activeclassname="active">
           <p className="header-link">Meny</p>
         </NavLink>
-        <NavLink exact to="/order" activeClassName="active">
+        <NavLink to="/order" activeclassname="active">
           <div className="header-link flex-container">
             <p>Beställ</p>
             <div className="header-link">

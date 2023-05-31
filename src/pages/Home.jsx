@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 function Home() {
   return (
-    <div className="flex-container-home">
+    <div className="flex-container-whole-page">
       <div className="home-container">
         <div>
           <h1
             style={{ fontSize: "70px", borderRadius: "80px 80px 10px 10px" }}
-            className="lightest-salmon-color brown-background-home-container"
+            className="brown-background-home-container"
           >
             BUN DROP
           </h1>
@@ -24,7 +24,7 @@ function Home() {
         <div>
           <h2
             style={{ borderRadius: "10px 10px 50px 50px" }}
-            className="lightest-salmon-color brown-background-home-container"
+            className="lightest-color brown-background-home-container"
           >
             DROP IT LIKE IT'S HOT!
           </h2>
