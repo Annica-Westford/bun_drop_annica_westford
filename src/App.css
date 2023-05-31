@@ -6,14 +6,44 @@ body {
 }
 
 body,
-a {
+a,
+button {
   font-family: "Oswald", sans-serif;
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: normal;
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: normal;
 }
 
 a {
   text-decoration: none;
   color: #ffa07a;
   font-size: 18px;
+}
+
+a:hover {
+  color: #ffc8a3;
+}
+
+button {
+  font-size: 24px;
+  background-color: rgba(255, 160, 122, 0.9);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 35px;
+  color: #ffe8d2;
+  cursor: pointer;
+}
+
+button:hover {
+  box-shadow: 0 0 5px 2px rgba(255, 200, 163, 0.5);
+  /* box-shadow: 0px 0px 10px 3px rgba(255, 255, 255, 0.8); */
 }
 
 .app {
@@ -41,6 +71,36 @@ a {
 }
 
 /* länkarna till höger i headern */
-.header-links-container > a {
+.header-link {
   margin-left: 20px;
+}
+
+.active {
+  /* box-shadow: 0px 0px 10px 3px rgba(255, 255, 255, 0.8); */
+  /* border-bottom: 2px solid #ffa07a; */
+  pointer-events: none;
+  /* text-decoration: underline; */
+  color: #ffe8d2;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+}
+
+.home-container {
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.brown-background-home-container {
+  padding: 35px 60px;
+  background-color: rgba(70, 50, 50, 0.8);
+}
+
+.lightest-salmon-color {
+  color: #ffe8d2;
 }
