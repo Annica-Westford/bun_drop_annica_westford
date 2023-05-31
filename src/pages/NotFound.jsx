@@ -7,7 +7,7 @@ function NotFound() {
       <h1>Sidan kunde inte hittas...</h1>
       <p>Men här är en gullig katt som äter en hamburgare!</p>
       <img
-        style={{ width: "500px" }}
+        style={{ maxWidth: "600px" }}
         src={catImage}
         alt="Cat eating a burger"
       />

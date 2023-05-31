@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body,
+a {
+  font-family: "Oswald", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #ffa07a;
+  font-size: 18px;
+}
+
+.app {
+  height: 100vh;
+  width: 100vw;
+  background-image: url("./images/bun_drop_background.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  padding: 10px;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.header-links-container {
+  display: flex;
+  margin-right: 40px;
+  margin-top: 30px;
+}
+
+/* länkarna till höger i headern */
+.header-links-container > a {
+  margin-left: 20px;
+}
