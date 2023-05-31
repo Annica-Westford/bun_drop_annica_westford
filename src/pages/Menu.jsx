@@ -1,9 +1,15 @@
 import React from "react";
 import { useProducts } from "../hooks/useProducts";
-import ProductMenuDisplay from "../components/ProductMenuDisplay";
+import BurgerMenuDisplay from "../components/BurgerMenuDisplay";
 
 function Menu() {
-  const { burgers, sides, drinks } = useProducts();
+  const { burgers, sides, drinks, meals } = useProducts();
+
+  //TODO - lägg till felhantering här, ifall den inte hittar något
+  function findMealPrice(burgerId) {
+    const meal = meals.find((m) => m.burgerId === burgerId);
+    return meal.price;
+  }
 
   return (
     <div className="flex-container-whole-page">
@@ -13,7 +19,11 @@ function Menu() {
           <div className="grid-item-border">
             <h2>Burgare</h2>
             {burgers?.map((b) => (
-              <ProductMenuDisplay key={b.id} product={b} />
+              <BurgerMenuDisplay
+                key={b.id}
+                burger={b}
+                mealprice={findMealPrice(b.id)}
+              />
             ))}
           </div>
           <div className="grid-item-border">

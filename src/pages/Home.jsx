@@ -7,27 +7,30 @@ function Home() {
       <div className="home-container">
         <div>
           <h1
-            style={{ fontSize: "70px", borderRadius: "80px 80px 10px 10px" }}
-            className="brown-background-home-container"
+            style={{
+              fontSize: "70px",
+            }}
           >
             BUN DROP
           </h1>
         </div>
         <div>
-          <Link to="/menu">
-            <button style={{ marginRight: "5px" }}>Meny</button>
-          </Link>
-          <Link to="/order">
-            <button style={{ marginLeft: "5px" }}>Beställ</button>
-          </Link>
-        </div>
-        <div>
           <h2
-            style={{ borderRadius: "10px 10px 50px 50px" }}
-            className="lightest-color brown-background-home-container"
+            style={{
+              marginBottom: "20px",
+            }}
+            className="lightest-color"
           >
             DROP IT LIKE IT'S HOT!
           </h2>
+        </div>
+        <div>
+          <Link to="/menu">
+            <button style={{ marginRight: "8px" }}>Meny</button>
+          </Link>
+          <Link to="/order">
+            <button style={{ marginLeft: "8px" }}>Beställ</button>
+          </Link>
         </div>
       </div>
     </div>

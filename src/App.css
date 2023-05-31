@@ -14,11 +14,13 @@ button {
 h1 {
   font-size: 48px;
   font-weight: normal;
+  margin: 0px;
 }
 
 h2 {
   font-size: 26px;
   font-weight: normal;
+  margin: 0px;
 }
 
 a {
@@ -46,9 +48,22 @@ button:hover {
   /* box-shadow: 0px 0px 10px 3px rgba(255, 255, 255, 0.8); */
 }
 
+footer {
+  text-align: center;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  /* margin-top: auto; */
+  position: fixed;
+  padding: 8px;
+  color: #ffa07a;
+}
+
 .app {
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
+  display: flex;
+  flex-direction: column;
   background-image: url("./images/bun_drop_background.jpg");
   /* background-image: url("./images/background_2.jpg"); */
   background-size: cover;
@@ -101,12 +116,15 @@ button:hover {
 .home-container {
   flex-direction: column;
   text-align: center;
+  background-color: rgba(70, 50, 50, 0.8);
+  padding: 60px 70px;
+  border-radius: 20px;
 }
 
-.brown-background-home-container {
+/* .burger-background-home-container {
   padding: 35px 60px;
-  background-color: rgba(70, 50, 50, 0.8);
-}
+  background-color: rgba(255, 160, 122, 0.5);
+} */
 
 .lightest-color,
 h1,
@@ -120,13 +138,14 @@ h2 {
   text-align: center;
   background-color: rgba(70, 50, 50, 0.8);
   border-radius: 20px;
+  margin-top: 40px;
 }
 
 .menu-items-container {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   width: 1000px;
-  height: 550px;
+  height: 500px;
   overflow: auto;
 }
 

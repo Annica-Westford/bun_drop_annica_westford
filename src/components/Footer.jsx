@@ -1,6 +1,6 @@
 import React from "react";
 function Footer() {
-  return <div></div>;
+  return <footer>@2023 Bun Drop</footer>;
 }
 
 export default Footer;
