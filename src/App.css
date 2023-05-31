@@ -24,7 +24,7 @@ h2 {
 a {
   text-decoration: none;
   color: #ffa07a;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 a:hover {
@@ -83,16 +83,20 @@ button:hover {
   color: #ffe8d2;
 }
 
-.flex-container {
+.flex-container,
+.flex-container-home {
   display: flex;
   align-items: center;
 }
 
-.home-container {
+.flex-container-home {
   width: 100vw;
   height: 100vh;
-  flex-direction: column;
   justify-content: center;
+}
+
+.home-container {
+  flex-direction: column;
   text-align: center;
 }
 
