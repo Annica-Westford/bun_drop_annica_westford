@@ -18,9 +18,19 @@ h1 {
 }
 
 h2 {
-  font-size: 26px;
+  font-size: 28px;
   font-weight: normal;
   margin: 0px;
+}
+
+h3 {
+  font-size: 20px;
+  margin: 0px;
+}
+
+p {
+  margin: 0px;
+  font-size: 15px;
 }
 
 a {
@@ -49,13 +59,13 @@ button:hover {
 }
 
 footer {
-  text-align: center;
+  /* text-align: center; */
   left: 0;
   bottom: 0;
   width: 100%;
   /* margin-top: auto; */
   position: fixed;
-  padding: 8px;
+  padding: 10px;
   color: #ffa07a;
 }
 
@@ -132,6 +142,11 @@ h2 {
   color: #ffe8d2;
 }
 
+p,
+h3 {
+  font-weight: 300;
+}
+
 .menu-container {
   display: flex;
   flex-direction: column;
@@ -151,6 +166,25 @@ h2 {
 
 .grid-item-border {
   border-right: 1px solid #ffa07a;
+}
+
+.menu-item-parent-container {
+  display: flex;
+  /* flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between; */
+  /* border-bottom: 1px dotted #ffa07a; */
+  padding: 15px 20px;
+  position: relative;
+}
+
+.menu-item-parent-container::before {
+  content: "";
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  bottom: 0;
+  border-bottom: 1px dotted #ffa07a;
 }
 
 ::-webkit-scrollbar {

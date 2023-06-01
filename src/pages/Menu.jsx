@@ -1,6 +1,6 @@
 import React from "react";
 import { useProducts } from "../hooks/useProducts";
-import BurgerMenuDisplay from "../components/BurgerMenuDisplay";
+import MenuItem from "../components/MenuItem";
 
 function Menu() {
   const { burgers, sides, drinks, meals } = useProducts();
@@ -8,7 +8,7 @@ function Menu() {
   //TODO - lägg till felhantering här, ifall den inte hittar något
   function findMealPrice(burgerId) {
     const meal = meals.find((m) => m.burgerId === burgerId);
-    return meal.price;
+    return meal ? meal.price : null;
   }
 
   return (
@@ -19,9 +19,9 @@ function Menu() {
           <div className="grid-item-border">
             <h2>Burgare</h2>
             {burgers?.map((b) => (
-              <BurgerMenuDisplay
+              <MenuItem
                 key={b.id}
-                burger={b}
+                product={b}
                 mealprice={findMealPrice(b.id)}
               />
             ))}
@@ -29,13 +29,13 @@ function Menu() {
           <div className="grid-item-border">
             <h2>Sides</h2>
             {sides?.map((s) => (
-              <p key={s.id}>{s.name}</p>
+              <MenuItem key={s.id} product={s} />
             ))}
           </div>
           <div>
             <h2>Dryck</h2>
             {drinks?.map((d) => (
-              <p key={d.id}>{d.name}</p>
+              <MenuItem key={d.id} product={d} />
             ))}
           </div>
         </div>

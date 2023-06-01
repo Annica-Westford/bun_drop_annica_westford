@@ -13,14 +13,14 @@ function Header() {
       </Link>
       <div className="header-links-container">
         <NavLink to="/" activeclassname="active">
-          <p className="header-link">Hem</p>
+          <h3 className="header-link">Hem</h3>
         </NavLink>
         <NavLink to="/menu" activeclassname="active">
-          <p className="header-link">Meny</p>
+          <h3 className="header-link">Meny</h3>
         </NavLink>
         <NavLink to="/order" activeclassname="active">
           <div className="header-link flex-container">
-            <p>Beställ</p>
+            <h3>Beställ</h3>
             <div className="header-link">
               <FontAwesomeIcon icon={faCartShopping} />
             </div>
