@@ -1,24 +1,30 @@
 import React from "react";
 
-function MenuItem({ product, mealprice }) {
+function MenuItem({ item, mealprice }) {
   return (
     <div className="menu-item-parent-container">
       <div style={{ flex: "1", textAlign: "start" }}>
         <h3 style={{ marginBottom: "0px" }} className="lightest-color">
-          {product.name}
+          {item.name}
         </h3>
         <p style={{ marginTop: "0px" }} className="lightest-color">
-          {product.description}
+          {item.description}
         </p>
       </div>
       <div>
         {mealprice ? (
-          <p style={{ marginBottom: "0px" }} className="lightest-color">
-            Singel {product.price} kr/ Meal {mealprice} kr
+          <p
+            style={{ marginBottom: "0px", marginTop: "5px" }}
+            className="lightest-color"
+          >
+            Singel {item.price} kr/ Meal {mealprice} kr
           </p>
         ) : (
-          <p style={{ marginBottom: "0px" }} className="lightest-color">
-            {product.price} kr
+          <p
+            style={{ marginBottom: "0px", marginTop: "5px" }}
+            className="lightest-color"
+          >
+            {item.price} kr
           </p>
         )}
       </div>

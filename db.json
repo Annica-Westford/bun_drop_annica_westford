@@ -2,8 +2,8 @@
   "burgers": [
     {
       "id": 1,
-      "name": "The Binary Burger",
-      "description": "Enkel biff, cheddarost, lök, pickles, husets ketchup & senap. Ettor och nollor!",
+      "name": "The Syntax Error Surprise",
+      "description": "Slumpvis kombinerade ingredienser i en överraskande kombination som är svår att identifiera.",
       "price": 80,
       "image": "burger-1"
     },
@@ -23,8 +23,8 @@
     },
     {
       "id": 4,
-      "name": "The Syntax Error Surprise",
-      "description": "Slumpvis kombinerade ingredienser i en överraskande kombination som är svår att identifiera.",
+      "name": "The Binary Burger",
+      "description": "Enkel biff, cheddarost, lök, pickles, husets ketchup & senap. 01100111 01101111 01110100 01110100 00001010",
       "price": 90,
       "image": "burger-4"
     },
@@ -68,14 +68,14 @@
     {
       "id": 1,
       "name": "Helt vanliga pommes",
-      "description": "Inga konstigheter",
+      "description": "Inga konstigheter.",
       "price": 30,
       "image": "side-1"
     },
     {
       "id": 2,
       "name": "Sötpotatispommes",
-      "description": "Krispiga pommes gjorda på sötpotatis",
+      "description": "Krispiga pommes gjorda på sötpotatis.",
       "price": 40,
       "image": "side-2"
     }
@@ -105,14 +105,14 @@
     {
       "id": 4,
       "name": "Calpis Water",
-      "description": "Fancy vatten",
+      "description": "Fancy vatten.",
       "price": 30,
       "image": "drink-4"
     },
     {
       "id": 5,
       "name": "Tropical Energy Drink",
-      "description": "Kokos & Lime",
+      "description": "Kokos & Lime.",
       "price": 35,
       "image": "drink-5"
     }
@@ -120,7 +120,7 @@
   "meals": [
     {
       "id": 1,
-      "name": "The Binary Burger Meal",
+      "name": "The Syntax Error Surprise Meal",
       "burgerId": 1,
       "price": 110
     },
@@ -139,7 +139,7 @@
     },
     {
       "id": 4,
-      "name": "The Syntax Error Surprise Meal",
+      "name": "The Binary Burger Meal",
       "burgerId": 4,
       "price": 120
     },

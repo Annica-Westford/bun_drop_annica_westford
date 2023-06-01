@@ -1,42 +1,23 @@
 import React from "react";
-import { useProducts } from "../hooks/useProducts";
-import MenuItem from "../components/MenuItem";
+import { useItems } from "../hooks/useItems";
+import MenuList from "../components/MenuList";
 
 function Menu() {
-  const { burgers, sides, drinks, meals } = useProducts();
-
-  //TODO - lägg till felhantering här, ifall den inte hittar något
-  function findMealPrice(burgerId) {
-    const meal = meals.find((m) => m.burgerId === burgerId);
-    return meal ? meal.price : null;
-  }
+  const { burgers, sides, drinks, meals } = useItems();
 
   return (
     <div className="flex-container-whole-page">
-      <div className="menu-container">
-        <h1>MENY</h1>
+      <div className="page-container">
+        <h1 style={{ paddingBottom: "20px" }}>MENY</h1>
         <div className="menu-items-container">
           <div className="grid-item-border">
-            <h2>Burgare</h2>
-            {burgers?.map((b) => (
-              <MenuItem
-                key={b.id}
-                product={b}
-                mealprice={findMealPrice(b.id)}
-              />
-            ))}
+            <MenuList title="Burgare" items={burgers} meals={meals} />
           </div>
           <div className="grid-item-border">
-            <h2>Sides</h2>
-            {sides?.map((s) => (
-              <MenuItem key={s.id} product={s} />
-            ))}
+            <MenuList title="Sides" items={sides} />
           </div>
           <div>
-            <h2>Dryck</h2>
-            {drinks?.map((d) => (
-              <MenuItem key={d.id} product={d} />
-            ))}
+            <MenuList title="Dryck" items={drinks} />
           </div>
         </div>
       </div>

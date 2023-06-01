@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { apiHelper } from "../services/apiHelper";
 
-export function useProducts() {
+export function useItems() {
   const [burgers, setBurgers] = useState([]);
   const [sides, setSides] = useState([]);
   const [drinks, setDrinks] = useState([]);
