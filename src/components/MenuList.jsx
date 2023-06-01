@@ -1,5 +1,5 @@
 import React from "react";
-import MenuItem from "./MenuItem";
+import MenuListItem from "./MenuListItem";
 
 function MenuList({ title, items, meals }) {
   function findMealPrice(burgerId) {
@@ -11,7 +11,7 @@ function MenuList({ title, items, meals }) {
     <>
       <h2>{title}</h2>
       {items?.map((i) => (
-        <MenuItem
+        <MenuListItem
           key={i.id}
           item={i}
           mealprice={meals ? findMealPrice(i.id) : undefined}

@@ -5,63 +5,63 @@
       "name": "The Syntax Error Surprise",
       "description": "Slumpvis kombinerade ingredienser i en överraskande kombination som är svår att identifiera.",
       "price": 80,
-      "image": "burger-1"
+      "image": "burger1"
     },
     {
       "id": 2,
       "name": "The Infinite Loop",
-      "description": "Trippel biff, stekt tomat, dubbel cheddarost, rostad lök, lök, mayo. Håller dig mätt i all oändlighet.",
+      "description": "Enkel biff, stekt tomat, dubbel cheddarost, rostad lök, lök, mayo. Håller dig mätt i all oändlighet.",
       "price": 80,
-      "image": "burger-2"
+      "image": "burger2"
     },
     {
       "id": 3,
       "name": "The Debugger's Delight",
       "description": "Dubbel biff, dubbel cheddarost, isbergssallad, tomat, lök, pickles, mayo. Ger dig energi att lösa alla dina buggar.",
       "price": 80,
-      "image": "burger-3"
+      "image": "burger3"
     },
     {
       "id": 4,
       "name": "The Binary Burger",
-      "description": "Enkel biff, cheddarost, lök, pickles, husets ketchup & senap. 01100111 01101111 01110100 01110100 00001010",
+      "description": "Dubbel biff, cheddarost, lök, pickles, husets ketchup & senap. 01100111 01101111 01110100 01110100 00001010",
       "price": 90,
-      "image": "burger-4"
+      "image": "burger4"
     },
     {
       "id": 5,
       "name": "The CSS Cruncher",
-      "description": "Enkel biff, cheddarost, jalapeños, bifftomat, lökringar, smoky dressing. Mycket visuellt tilltalande.",
+      "description": "Dubbel biff, cheddarost, jalapeños, bifftomat, lökringar, smoky dressing. Mycket visuellt tilltalande.",
       "price": 90,
-      "image": "burger-5"
+      "image": "burger5"
     },
     {
       "id": 6,
       "name": "The Recursive Burger",
       "description": "Trippel biff, trippel ost (cheddar & pepper jack), trippel mayo. Allt du älskar i en oändlig repetition.",
       "price": 90,
-      "image": "burger-6"
+      "image": "burger6"
     },
     {
       "id": 7,
-      "name": "The Algorithmic Awesomeness",
+      "name": "The Algorithmic Burger",
       "description": "Enkel biff, cheddarost, gullök, friterade champinjoner, mayo. Noga beräkning av ingrediens-kombination för bästa resultat.",
       "price": 100,
-      "image": "burger-7"
+      "image": "burger7"
     },
     {
       "id": 8,
       "name": "The HTML Hero",
       "description": "Dubbel biff, chilli, mayo, rostad lök, rödlök, lökringar av cheddarost. En burgare med tydlig struktur.",
       "price": 100,
-      "image": "burger-8"
+      "image": "burger8"
     },
     {
       "id": 9,
       "name": "The API masterpiece",
       "description": "Enkel biff, brioche-bröd, chilimayo, rödlök, cheddar ost, paprika. Ett RESTful mästerverk helt enkelt.",
       "price": 100,
-      "image": "burger-9"
+      "image": "burger9"
     }
   ],
   "sides": [
@@ -70,14 +70,14 @@
       "name": "Helt vanliga pommes",
       "description": "Inga konstigheter.",
       "price": 30,
-      "image": "side-1"
+      "image": "side1"
     },
     {
       "id": 2,
       "name": "Sötpotatispommes",
       "description": "Krispiga pommes gjorda på sötpotatis.",
       "price": 40,
-      "image": "side-2"
+      "image": "side2"
     }
   ],
   "drinks": [
@@ -86,35 +86,35 @@
       "name": "Milkshake",
       "description": "Vi har bara choklad men trust me, det är värt det.",
       "price": 50,
-      "image": "drink-1"
+      "image": "drink1"
     },
     {
       "id": 2,
       "name": "Lemonad",
       "description": "Läskande och svalkande.",
       "price": 40,
-      "image": "drink-2"
+      "image": "drink2"
     },
     {
       "id": 3,
       "name": "Sparkling tonic",
       "description": "Jordgubb & vanilj. Otrolig kombination.",
       "price": 40,
-      "image": "drink-3"
+      "image": "drink3"
     },
     {
       "id": 4,
       "name": "Calpis Water",
       "description": "Fancy vatten.",
       "price": 30,
-      "image": "drink-4"
+      "image": "drink4"
     },
     {
       "id": 5,
       "name": "Tropical Energy Drink",
       "description": "Kokos & Lime.",
       "price": 35,
-      "image": "drink-5"
+      "image": "drink5"
     }
   ],
   "meals": [
@@ -157,7 +157,7 @@
     },
     {
       "id": 7,
-      "name": "The Algorithmic Awesomeness Meal",
+      "name": "The Algorithmic Burger Meal",
       "burgerId": 7,
       "price": 130
     },

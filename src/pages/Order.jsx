@@ -9,12 +9,14 @@ function Order() {
     <div className="flex-container-whole-page">
       <div className="page-container">
         <div className="order-parent-container">
-          <div className="order-menu-container grid-item-border">
+          <div>
             <h1 style={{ paddingBottom: "20px" }}>BESTÄLL</h1>
-            <OrderMenuList title="Meals" items={meals} />
-            <OrderMenuList title="Burgare" items={burgers} />
-            <OrderMenuList title="Sides" items={sides} />
-            <OrderMenuList title="Dryck" items={drinks} />
+            <div className="order-menu-container-list-scroll">
+              <OrderMenuList title="Meals" items={meals} burgers={burgers} />
+              <OrderMenuList title="Burgare" items={burgers} />
+              <OrderMenuList title="Sides" items={sides} />
+              <OrderMenuList title="Dryck" items={drinks} />
+            </div>
           </div>
           <div className="my-order-container">
             <h2 style={{ paddingBottom: "20px" }}>Min Beställning</h2>

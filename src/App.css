@@ -28,6 +28,12 @@ h3 {
   margin: 0px;
 }
 
+h4 {
+  font-size: 18px;
+  font-weight: normal;
+  margin: 0;
+}
+
 p {
   margin: 0px;
   font-size: 15px;
@@ -138,7 +144,9 @@ footer {
 
 .lightest-color,
 h1,
-h2 {
+h2,
+h4,
+p {
   color: #ffe8d2;
 }
 
@@ -192,7 +200,11 @@ h3 {
   grid-template-columns: 2fr 1fr;
 }
 
-.order-menu-container {
+/* .order-menu-container {
+} */
+
+.order-menu-container-list-scroll {
+  height: 500px;
   overflow: auto;
 }
 
@@ -207,7 +219,17 @@ h3 {
 
 .order-items-container {
   display: grid;
+  gap: 10px;
   grid-template-columns: 1fr 1fr;
+  padding: 10px;
+}
+
+.order-menu-list-item-container {
+  display: flex;
+  background-color: rgba(255, 160, 122, 0.4);
+  border-radius: 20px;
+  /* align-items: center;
+  justify-content: center; */
 }
 
 ::-webkit-scrollbar {
