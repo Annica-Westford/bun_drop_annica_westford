@@ -204,7 +204,7 @@ h3 {
 } */
 
 .order-menu-container-list-scroll {
-  height: 500px;
+  /* height: 500px; */
   overflow: auto;
 }
 
@@ -256,6 +256,11 @@ h3 {
 .add-symbol:hover {
   /* box-shadow: 0 0 5px 2px rgba(255, 200, 163, 0.5); */
   color: #ffe8d2;
+}
+
+.disabled-link {
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 ::-webkit-scrollbar {
