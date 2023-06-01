@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
+import { localStorageManager } from "../services/localStorageManager";
 import burger1 from "../images/burgers/burger1.png";
 import burger2 from "../images/burgers/burger2.png";
 import burger3 from "../images/burgers/burger3.png";
@@ -19,19 +20,14 @@ import drink4 from "../images/drinks/drink4.png";
 import drink5 from "../images/drinks/drink5.png";
 
 function OrderMenuListItem({ item, burger }) {
+  function addToLocalStorage() {
+    localStorageManager.addToLocalStorage(item);
+  }
+
   return (
     <div className="order-menu-list-item-container">
       <div className="flex-container">
-        <img
-          src={burger1}
-          alt=""
-          style={{
-            width: "90px",
-            borderRadius: "45px",
-            marginTop: "5px",
-            marginLeft: "5px",
-          }}
-        />
+        <img src={burger1} alt="" className="item-image" />
       </div>
 
       {/* {burger ? (
@@ -39,16 +35,7 @@ function OrderMenuListItem({ item, burger }) {
       ) : (
         <img src={item.image} alt="item" />
       )} */}
-      <div
-        // className="flex-container"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          flex: 1,
-          textAlign: "start",
-          padding: "5px",
-        }}
-      >
+      <div className="order-menu-list-item-child-container">
         <h4>{item.name}</h4>
         {burger ? (
           <p style={{ fontSize: "14px" }}>{burger.description}</p>
@@ -59,7 +46,11 @@ function OrderMenuListItem({ item, burger }) {
       </div>
 
       <div className="flex-container" style={{ paddingRight: "7px" }}>
-        <FontAwesomeIcon icon={faCirclePlus} style={{ fontSize: "28px" }} />
+        <FontAwesomeIcon
+          icon={faCirclePlus}
+          className="add-symbol"
+          onClick={addToLocalStorage}
+        />
       </div>
     </div>
   );
