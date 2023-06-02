@@ -1,4 +1,7 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+
 function OrderSummaryItem({ item }) {
   return (
     <div
@@ -17,11 +20,21 @@ function OrderSummaryItem({ item }) {
           {item.name}
         </h3>
         <div style={{ display: "flex" }}>
-          <span>-</span>
-          <span> </span>
-          <span>1</span>
-          <span> </span>
-          <span>+</span>
+          <span>
+            <FontAwesomeIcon
+              icon={faMinus}
+              className="lightest-color"
+              style={{ marginRight: "5px" }}
+            />
+          </span>
+          <span>{item.quantity}</span>
+          <span>
+            <FontAwesomeIcon
+              icon={faPlus}
+              className="lightest-color"
+              style={{ marginLeft: "5px" }}
+            />
+          </span>
         </div>
       </div>
       <div style={{ display: "flex", justifyContent: "flex-end" }}>

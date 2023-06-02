@@ -1,37 +1,52 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import OrderSummaryItem from "./OrderSummaryItem";
 
-//TODO - måste fixa så att ordersummery uppdateras dynamiskt när det sker förändringar i localstorage
-//TODO - måste fixa plus och minus-symboler till ordersummaryitem
 //TODO - måste fixa ett sätt att klumpa ihop samma items så att de bara displayas en gång och med rätt antal
-function OrderSummary() {
-  const [cartItems, setCartItems] = useState([]);
+function OrderSummary({ cartItems }) {
+  // const [cartItems, setCartItems] = useState([]);
 
-  useEffect(() => {
-    const storedCartItems = localStorage.getItem("cartItems");
-    if (storedCartItems) {
-      setCartItems(JSON.parse(storedCartItems));
-    }
-  }, []);
+  // useEffect(() => {
+  //   getLocalStorage();
+  // }, []);
+
+  // function getLocalStorage() {
+  //   const storedCartItems = localStorage.getItem("cartItems");
+  //   if (storedCartItems) {
+  //     setCartItems(JSON.parse(storedCartItems));
+  //   }
+  // }
   //   let cartItems = localStorage.getItem("cartItems");
   //   cartItems = JSON.parse(cartItems);
 
-  if (cartItems !== null) {
+  if (cartItems.length > 0) {
     return (
       <div className="my-order-container">
         <h2 style={{ paddingBottom: "20px" }}>Min Beställning</h2>
         <div
           className="order-menu-container-list-scroll"
-          style={{ height: "450px" }}
+          style={{ height: "400px" }}
         >
           {cartItems?.map((c) => (
             <OrderSummaryItem key={c.id} item={c} />
           ))}
         </div>
+        <div
+          style={{
+            flex: "1",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: "15px 30px 5px 20px",
+          }}
+        >
+          <p style={{ fontSize: "18px" }}>Total:</p>
+          <p style={{ fontSize: "18px" }}>120 kr</p>
+        </div>
+
         <Link to="/payment">
-          <button>Gå till kassan</button>
+          <button style={{ marginTop: "15px" }}>Gå till kassan</button>
         </Link>
       </div>
     );
@@ -41,12 +56,12 @@ function OrderSummary() {
         <h2 style={{ paddingBottom: "20px" }}>Min Beställning</h2>
         <div
           className="order-menu-container-list-scroll"
-          style={{ height: "450px" }}
+          style={{ height: "400px" }}
         >
           <p>Varukorgen är tom!</p>
         </div>
         <Link to="/payment" className="disabled-link">
-          <button>Gå till kassan</button>
+          <button style={{ marginTop: "15px" }}>Gå till kassan</button>
         </Link>
       </div>
     );

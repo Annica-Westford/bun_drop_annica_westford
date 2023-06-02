@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useItems } from "../hooks/useItems";
 import OrderMenuList from "../components/OrderMenuList";
 import OrderSummary from "../components/OrderSummary";
 
 function Order() {
-  const { burgers, sides, drinks, meals } = useItems();
+  const { burgers, sides, drinks } = useItems();
+  const [cartItems, setCartItems] = useState({});
+
+  useEffect(() => {
+    getLocalStorage();
+  }, []);
+
+  function localStorageUpdated() {
+    getLocalStorage();
+  }
+
+  function getLocalStorage() {
+    const storedCartItems = localStorage.getItem("cartItems");
+    if (storedCartItems) {
+      setCartItems(JSON.parse(storedCartItems));
+    }
+  }
 
   return (
     <div className="flex-container-whole-page">
@@ -16,13 +32,17 @@ function Order() {
               className="order-menu-container-list-scroll"
               style={{ height: "500px" }}
             >
-              <OrderMenuList title="Meals" items={meals} burgers={burgers} />
+              <OrderMenuList
+                title="Meals"
+                items={burgers}
+                localStorageUpdated={localStorageUpdated}
+              />
               <OrderMenuList title="Burgare" items={burgers} />
               <OrderMenuList title="Sides" items={sides} />
               <OrderMenuList title="Dryck" items={drinks} />
             </div>
           </div>
-          <OrderSummary />
+          <OrderSummary cartItems={cartItems} />
         </div>
       </div>
     </div>

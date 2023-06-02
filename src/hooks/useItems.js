@@ -5,7 +5,6 @@ export function useItems() {
   const [burgers, setBurgers] = useState([]);
   const [sides, setSides] = useState([]);
   const [drinks, setDrinks] = useState([]);
-  const [meals, setMeals] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,23 +45,9 @@ export function useItems() {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const data = await apiHelper.getData("meals");
-        setMeals(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
   return {
     burgers,
     sides,
     drinks,
-    meals,
   };
 }

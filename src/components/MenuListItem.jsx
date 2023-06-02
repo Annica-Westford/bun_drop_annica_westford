@@ -1,6 +1,6 @@
 import React from "react";
 
-function MenuListItem({ item, mealprice }) {
+function MenuListItem({ item, itemIsBurger }) {
   return (
     <div className="menu-item-parent-container">
       <div style={{ flex: "1", textAlign: "start" }}>
@@ -10,9 +10,9 @@ function MenuListItem({ item, mealprice }) {
         <p style={{ marginTop: "0px" }}>{item.description}</p>
       </div>
       <div>
-        {mealprice ? (
+        {itemIsBurger ? (
           <p style={{ marginBottom: "0px", marginTop: "5px" }}>
-            Singel {item.price} kr/ Meal {mealprice} kr
+            Singel {item.price} kr/ Meal {item.mealprice} kr
           </p>
         ) : (
           <p style={{ marginBottom: "0px", marginTop: "5px" }}>

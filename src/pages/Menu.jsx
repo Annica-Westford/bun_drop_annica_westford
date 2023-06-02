@@ -3,7 +3,7 @@ import { useItems } from "../hooks/useItems";
 import MenuList from "../components/MenuList";
 
 function Menu() {
-  const { burgers, sides, drinks, meals } = useItems();
+  const { burgers, sides, drinks } = useItems();
 
   return (
     <div className="flex-container-whole-page">
@@ -11,7 +11,7 @@ function Menu() {
         <h1 style={{ paddingBottom: "20px" }}>MENY</h1>
         <div className="menu-items-container">
           <div className="grid-item-border">
-            <MenuList title="Burgare" items={burgers} meals={meals} />
+            <MenuList title="Burgare" items={burgers} />
           </div>
           <div className="grid-item-border">
             <MenuList title="Sides" items={sides} />

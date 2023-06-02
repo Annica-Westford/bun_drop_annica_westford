@@ -5,63 +5,72 @@
       "name": "The Syntax Error Surprise",
       "description": "Slumpvis kombinerade ingredienser i en överraskande kombination som är svår att identifiera.",
       "price": 80,
-      "image": "burger1"
+      "mealprice": 110,
+      "image": "burger1.png"
     },
     {
       "id": 2,
       "name": "The Infinite Loop",
       "description": "Enkel biff, stekt tomat, dubbel cheddarost, rostad lök, lök, mayo. Håller dig mätt i all oändlighet.",
       "price": 80,
-      "image": "burger2"
+      "mealprice": 110,
+      "image": "burger2.png"
     },
     {
       "id": 3,
       "name": "The Debugger's Delight",
       "description": "Dubbel biff, dubbel cheddarost, isbergssallad, tomat, lök, pickles, mayo. Ger dig energi att lösa alla dina buggar.",
       "price": 80,
-      "image": "burger3"
+      "mealprice": 110,
+      "image": "burger3.png"
     },
     {
       "id": 4,
       "name": "The Binary Burger",
       "description": "Dubbel biff, cheddarost, lök, pickles, husets ketchup & senap. 01100111 01101111 01110100 01110100 00001010",
       "price": 90,
-      "image": "burger4"
+      "mealprice": 120,
+      "image": "burger4.png"
     },
     {
       "id": 5,
       "name": "The CSS Cruncher",
       "description": "Dubbel biff, cheddarost, jalapeños, bifftomat, lökringar, smoky dressing. Mycket visuellt tilltalande.",
       "price": 90,
-      "image": "burger5"
+      "mealprice": 120,
+      "image": "burger5.png"
     },
     {
       "id": 6,
       "name": "The Recursive Burger",
       "description": "Trippel biff, trippel ost (cheddar & pepper jack), trippel mayo. Allt du älskar i en oändlig repetition.",
       "price": 90,
-      "image": "burger6"
+      "mealprice": 120,
+      "image": "burger6.png"
     },
     {
       "id": 7,
       "name": "The Algorithmic Burger",
       "description": "Enkel biff, cheddarost, gullök, friterade champinjoner, mayo. Noga beräkning av ingrediens-kombination för bästa resultat.",
       "price": 100,
-      "image": "burger7"
+      "mealprice": 130,
+      "image": "burger7.png"
     },
     {
       "id": 8,
       "name": "The HTML Hero",
       "description": "Dubbel biff, chilli, mayo, rostad lök, rödlök, lökringar av cheddarost. En burgare med tydlig struktur.",
       "price": 100,
-      "image": "burger8"
+      "mealprice": 130,
+      "image": "burger8.png"
     },
     {
       "id": 9,
       "name": "The API masterpiece",
       "description": "Enkel biff, brioche-bröd, chilimayo, rödlök, cheddar ost, paprika. Ett RESTful mästerverk helt enkelt.",
       "price": 100,
-      "image": "burger9"
+      "mealprice": 130,
+      "image": "burger9.png"
     }
   ],
   "sides": [
@@ -70,14 +79,14 @@
       "name": "Helt vanliga pommes",
       "description": "Inga konstigheter.",
       "price": 30,
-      "image": "side1"
+      "image": "side1.png"
     },
     {
       "id": 2,
       "name": "Sötpotatispommes",
       "description": "Krispiga pommes gjorda på sötpotatis.",
       "price": 40,
-      "image": "side2"
+      "image": "side2.png"
     }
   ],
   "drinks": [
@@ -86,92 +95,35 @@
       "name": "Milkshake",
       "description": "Vi har bara choklad men trust me, det är värt det.",
       "price": 50,
-      "image": "drink1"
+      "image": "drink1.png"
     },
     {
       "id": 2,
       "name": "Lemonad",
       "description": "Läskande och svalkande.",
       "price": 40,
-      "image": "drink2"
+      "image": "drink2.png"
     },
     {
       "id": 3,
       "name": "Sparkling tonic",
       "description": "Jordgubb & vanilj. Otrolig kombination.",
       "price": 40,
-      "image": "drink3"
+      "image": "drink3.png"
     },
     {
       "id": 4,
       "name": "Calpis Water",
       "description": "Fancy vatten.",
       "price": 30,
-      "image": "drink4"
+      "image": "drink4.png"
     },
     {
       "id": 5,
       "name": "Tropical Energy Drink",
       "description": "Kokos & Lime.",
       "price": 35,
-      "image": "drink5"
-    }
-  ],
-  "meals": [
-    {
-      "id": 1,
-      "name": "The Syntax Error Surprise Meal",
-      "burgerId": 1,
-      "price": 110
-    },
-    {
-      "id": 2,
-      "name": "The Infinite Loop Meal",
-
-      "burgerId": 2,
-      "price": 110
-    },
-    {
-      "id": 3,
-      "name": "The Debugger's Delight Meal",
-      "burgerId": 3,
-      "price": 110
-    },
-    {
-      "id": 4,
-      "name": "The Binary Burger Meal",
-      "burgerId": 4,
-      "price": 120
-    },
-    {
-      "id": 5,
-      "name": "The CSS Cruncher Meal",
-      "burgerId": 5,
-      "price": 120
-    },
-    {
-      "id": 6,
-      "name": "The Recursive Burger Meal",
-      "burgerId": 6,
-      "price": 120
-    },
-    {
-      "id": 7,
-      "name": "The Algorithmic Burger Meal",
-      "burgerId": 7,
-      "price": 130
-    },
-    {
-      "id": 8,
-      "name": "The HTML Hero Meal",
-      "burgerId": 8,
-      "price": 130
-    },
-    {
-      "id": 9,
-      "name": "The API masterpiece Meal",
-      "burgerId": 9,
-      "price": 130
+      "image": "drink5.png"
     }
   ]
 }

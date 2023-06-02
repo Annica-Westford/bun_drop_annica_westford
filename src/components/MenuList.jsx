@@ -1,12 +1,7 @@
 import React from "react";
 import MenuListItem from "./MenuListItem";
 
-function MenuList({ title, items, meals }) {
-  function findMealPrice(burgerId) {
-    const meal = meals.find((m) => m.burgerId === burgerId);
-    return meal ? meal.price : null;
-  }
-
+function MenuList({ title, items }) {
   return (
     <>
       <h2>{title}</h2>
@@ -14,7 +9,7 @@ function MenuList({ title, items, meals }) {
         <MenuListItem
           key={i.id}
           item={i}
-          mealprice={meals ? findMealPrice(i.id) : undefined}
+          itemIsBurger={title.toLowerCase() === "burgare"}
         />
       ))}
     </>

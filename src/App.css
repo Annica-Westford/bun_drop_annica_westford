@@ -146,7 +146,8 @@ footer {
 h1,
 h2,
 h4,
-p {
+p,
+span {
   color: #ffe8d2;
 }
 

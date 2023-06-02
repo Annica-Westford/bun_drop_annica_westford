@@ -1,14 +1,7 @@
 import React from "react";
 import OrderMenuListItem from "./OrderMenuListItem";
 
-function OrderMenuList({ title, items, burgers }) {
-  function findBurger(burgerId) {
-    const burger = burgers.find((b) => b.id === burgerId);
-    return burger ? burger : null;
-  }
-
-  console.log(items);
-  console.log(burgers);
+function OrderMenuList({ title, items, localStorageUpdated }) {
   return (
     <>
       <h2>{title}</h2>
@@ -17,7 +10,10 @@ function OrderMenuList({ title, items, burgers }) {
           <OrderMenuListItem
             key={i.id}
             item={i}
-            burger={burgers ? findBurger(i.burgerId) : undefined}
+            itemIsMeal={title.toLowerCase() === "meals"}
+            localStorageUpdated={() => {
+              localStorageUpdated();
+            }}
           />
         ))}
       </div>
