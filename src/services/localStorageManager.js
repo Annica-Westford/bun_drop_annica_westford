@@ -20,6 +20,7 @@ export class localStorageManager {
     // Om det finns... Öka quantity för det objektet med 1
     else {
       foundItem.quantity++;
+      foundItem.price += item.price;
     }
 
     // Spara i local storage

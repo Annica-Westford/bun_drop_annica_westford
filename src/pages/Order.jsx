@@ -5,7 +5,8 @@ import OrderSummary from "../components/OrderSummary";
 
 function Order() {
   const { burgers, sides, drinks } = useItems();
-  const [cartItems, setCartItems] = useState({});
+  const [cartItems, setCartItems] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
     getLocalStorage();
@@ -20,6 +21,15 @@ function Order() {
     if (storedCartItems) {
       setCartItems(JSON.parse(storedCartItems));
     }
+
+    getTotalPrice();
+  }
+
+  function getTotalPrice() {
+    if (cartItems) {
+      const sum = cartItems.reduce((acc, item) => acc + item.price, 0);
+      setTotalPrice(sum);
+    }
   }
 
   return (
@@ -33,16 +43,23 @@ function Order() {
               style={{ height: "500px" }}
             >
               <OrderMenuList
-                title="Meals"
+                title="Burgare"
                 items={burgers}
                 localStorageUpdated={localStorageUpdated}
               />
-              <OrderMenuList title="Burgare" items={burgers} />
-              <OrderMenuList title="Sides" items={sides} />
-              <OrderMenuList title="Dryck" items={drinks} />
+              <OrderMenuList
+                title="Sides"
+                items={sides}
+                localStorageUpdated={localStorageUpdated}
+              />
+              <OrderMenuList
+                title="Dryck"
+                items={drinks}
+                localStorageUpdated={localStorageUpdated}
+              />
             </div>
           </div>
-          <OrderSummary cartItems={cartItems} />
+          <OrderSummary cartItems={cartItems} totalPrice={totalPrice} />
         </div>
       </div>
     </div>

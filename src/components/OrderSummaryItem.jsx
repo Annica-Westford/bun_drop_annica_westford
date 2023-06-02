@@ -3,6 +3,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
 
 function OrderSummaryItem({ item }) {
+  function handleMinusClick() {
+    console.log("Minus!");
+  }
+
+  function handlePlusClick() {
+    console.log("Plus!");
+  }
+
   return (
     <div
       className="menu-item-parent-container"
@@ -23,16 +31,18 @@ function OrderSummaryItem({ item }) {
           <span>
             <FontAwesomeIcon
               icon={faMinus}
-              className="lightest-color"
+              className="lightest-color order-summary-icon"
               style={{ marginRight: "5px" }}
+              onClick={handleMinusClick}
             />
           </span>
           <span>{item.quantity}</span>
           <span>
             <FontAwesomeIcon
               icon={faPlus}
-              className="lightest-color"
+              className="lightest-color order-summary-icon"
               style={{ marginLeft: "5px" }}
+              onClick={handlePlusClick}
             />
           </span>
         </div>

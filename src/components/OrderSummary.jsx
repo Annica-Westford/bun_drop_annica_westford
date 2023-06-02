@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // import { useEffect, useState } from "react";
 import OrderSummaryItem from "./OrderSummaryItem";
 
 //TODO - måste fixa ett sätt att klumpa ihop samma items så att de bara displayas en gång och med rätt antal
-function OrderSummary({ cartItems }) {
+function OrderSummary({ cartItems, totalPrice }) {
   // const [cartItems, setCartItems] = useState([]);
 
   // useEffect(() => {
@@ -28,8 +28,8 @@ function OrderSummary({ cartItems }) {
           className="order-menu-container-list-scroll"
           style={{ height: "400px" }}
         >
-          {cartItems?.map((c) => (
-            <OrderSummaryItem key={c.id} item={c} />
+          {cartItems?.map((c, index) => (
+            <OrderSummaryItem key={index} item={c} />
           ))}
         </div>
         <div
@@ -42,7 +42,7 @@ function OrderSummary({ cartItems }) {
           }}
         >
           <p style={{ fontSize: "18px" }}>Total:</p>
-          <p style={{ fontSize: "18px" }}>120 kr</p>
+          <p style={{ fontSize: "18px" }}>{totalPrice} kr</p>
         </div>
 
         <Link to="/payment">

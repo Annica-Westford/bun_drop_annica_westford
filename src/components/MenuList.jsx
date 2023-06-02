@@ -6,11 +6,7 @@ function MenuList({ title, items }) {
     <>
       <h2>{title}</h2>
       {items?.map((i) => (
-        <MenuListItem
-          key={i.id}
-          item={i}
-          itemIsBurger={title.toLowerCase() === "burgare"}
-        />
+        <MenuListItem key={i.id} item={i} />
       ))}
     </>
   );

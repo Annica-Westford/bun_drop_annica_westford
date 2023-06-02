@@ -10,7 +10,6 @@ function OrderMenuList({ title, items, localStorageUpdated }) {
           <OrderMenuListItem
             key={i.id}
             item={i}
-            itemIsMeal={title.toLowerCase() === "meals"}
             localStorageUpdated={() => {
               localStorageUpdated();
             }}

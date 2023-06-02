@@ -5,7 +5,6 @@
       "name": "The Syntax Error Surprise",
       "description": "Slumpvis kombinerade ingredienser i en överraskande kombination som är svår att identifiera.",
       "price": 80,
-      "mealprice": 110,
       "image": "burger1.png"
     },
     {
@@ -13,7 +12,6 @@
       "name": "The Infinite Loop",
       "description": "Enkel biff, stekt tomat, dubbel cheddarost, rostad lök, lök, mayo. Håller dig mätt i all oändlighet.",
       "price": 80,
-      "mealprice": 110,
       "image": "burger2.png"
     },
     {
@@ -21,7 +19,6 @@
       "name": "The Debugger's Delight",
       "description": "Dubbel biff, dubbel cheddarost, isbergssallad, tomat, lök, pickles, mayo. Ger dig energi att lösa alla dina buggar.",
       "price": 80,
-      "mealprice": 110,
       "image": "burger3.png"
     },
     {
@@ -29,7 +26,6 @@
       "name": "The Binary Burger",
       "description": "Dubbel biff, cheddarost, lök, pickles, husets ketchup & senap. 01100111 01101111 01110100 01110100 00001010",
       "price": 90,
-      "mealprice": 120,
       "image": "burger4.png"
     },
     {
@@ -37,7 +33,6 @@
       "name": "The CSS Cruncher",
       "description": "Dubbel biff, cheddarost, jalapeños, bifftomat, lökringar, smoky dressing. Mycket visuellt tilltalande.",
       "price": 90,
-      "mealprice": 120,
       "image": "burger5.png"
     },
     {
@@ -45,7 +40,6 @@
       "name": "The Recursive Burger",
       "description": "Trippel biff, trippel ost (cheddar & pepper jack), trippel mayo. Allt du älskar i en oändlig repetition.",
       "price": 90,
-      "mealprice": 120,
       "image": "burger6.png"
     },
     {
@@ -53,7 +47,6 @@
       "name": "The Algorithmic Burger",
       "description": "Enkel biff, cheddarost, gullök, friterade champinjoner, mayo. Noga beräkning av ingrediens-kombination för bästa resultat.",
       "price": 100,
-      "mealprice": 130,
       "image": "burger7.png"
     },
     {
@@ -61,7 +54,6 @@
       "name": "The HTML Hero",
       "description": "Dubbel biff, chilli, mayo, rostad lök, rödlök, lökringar av cheddarost. En burgare med tydlig struktur.",
       "price": 100,
-      "mealprice": 130,
       "image": "burger8.png"
     },
     {
@@ -69,7 +61,6 @@
       "name": "The API masterpiece",
       "description": "Enkel biff, brioche-bröd, chilimayo, rödlök, cheddar ost, paprika. Ett RESTful mästerverk helt enkelt.",
       "price": 100,
-      "mealprice": 130,
       "image": "burger9.png"
     }
   ],
