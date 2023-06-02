@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 // import { useEffect, useState } from "react";
-import OrderSummaryItem from "./OrderSummaryItem";
+import MyOrderItem from "./MyOrderItem";
 
 //TODO - måste fixa ett sätt att klumpa ihop samma items så att de bara displayas en gång och med rätt antal
-function OrderSummary({ cartItems, totalPrice }) {
+function MyOrder({ cartItems, totalPrice, localStorageUpdated }) {
   // const [cartItems, setCartItems] = useState([]);
 
   // useEffect(() => {
@@ -29,7 +29,13 @@ function OrderSummary({ cartItems, totalPrice }) {
           style={{ height: "400px" }}
         >
           {cartItems?.map((c, index) => (
-            <OrderSummaryItem key={index} item={c} />
+            <MyOrderItem
+              key={index}
+              item={c}
+              localStorageUpdated={() => {
+                localStorageUpdated();
+              }}
+            />
           ))}
         </div>
         <div
@@ -68,4 +74,4 @@ function OrderSummary({ cartItems, totalPrice }) {
   }
 }
 
-export default OrderSummary;
+export default MyOrder;

@@ -1,14 +1,17 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import { localStorageManager } from "../services/localStorageManager";
 
-function OrderSummaryItem({ item }) {
+function MyOrderItem({ item, localStorageUpdated }) {
   function handleMinusClick() {
-    console.log("Minus!");
+    localStorageManager.handleMinusClick(item);
+    localStorageUpdated();
   }
 
   function handlePlusClick() {
-    console.log("Plus!");
+    localStorageManager.handlePlusClick(item);
+    localStorageUpdated();
   }
 
   return (
@@ -48,10 +51,10 @@ function OrderSummaryItem({ item }) {
         </div>
       </div>
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
-        <p>{item.price} kr</p>
+        <p>{item.totalPrice} kr</p>
       </div>
     </div>
   );
 }
 
-export default OrderSummaryItem;
+export default MyOrderItem;

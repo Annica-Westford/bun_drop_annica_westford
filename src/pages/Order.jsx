@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useItems } from "../hooks/useItems";
 import OrderMenuList from "../components/OrderMenuList";
-import OrderSummary from "../components/OrderSummary";
+import MyOrder from "../components/MyOrder";
 
 function Order() {
   const { burgers, sides, drinks } = useItems();
@@ -12,6 +12,10 @@ function Order() {
     getLocalStorage();
   }, []);
 
+  useEffect(() => {
+    getTotalPrice();
+  }, [cartItems]);
+
   function localStorageUpdated() {
     getLocalStorage();
   }
@@ -21,13 +25,11 @@ function Order() {
     if (storedCartItems) {
       setCartItems(JSON.parse(storedCartItems));
     }
-
-    getTotalPrice();
   }
 
   function getTotalPrice() {
     if (cartItems) {
-      const sum = cartItems.reduce((acc, item) => acc + item.price, 0);
+      const sum = cartItems.reduce((acc, item) => acc + item.totalPrice, 0);
       setTotalPrice(sum);
     }
   }
@@ -59,7 +61,11 @@ function Order() {
               />
             </div>
           </div>
-          <OrderSummary cartItems={cartItems} totalPrice={totalPrice} />
+          <MyOrder
+            cartItems={cartItems}
+            totalPrice={totalPrice}
+            localStorageUpdated={localStorageUpdated}
+          />
         </div>
       </div>
     </div>
