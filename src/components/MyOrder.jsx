@@ -1,32 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-// import { useEffect, useState } from "react";
 import MyOrderItem from "./MyOrderItem";
 
-//TODO - måste fixa ett sätt att klumpa ihop samma items så att de bara displayas en gång och med rätt antal
-function MyOrder({ cartItems, totalPrice, localStorageUpdated }) {
-  // const [cartItems, setCartItems] = useState([]);
-
-  // useEffect(() => {
-  //   getLocalStorage();
-  // }, []);
-
-  // function getLocalStorage() {
-  //   const storedCartItems = localStorage.getItem("cartItems");
-  //   if (storedCartItems) {
-  //     setCartItems(JSON.parse(storedCartItems));
-  //   }
-  // }
-  //   let cartItems = localStorage.getItem("cartItems");
-  //   cartItems = JSON.parse(cartItems);
-
+function MyOrder({ cartItems, totalPrice, localStorageUpdated, parentSource }) {
   if (cartItems.length > 0) {
     return (
       <div className="my-order-container">
-        <h2 style={{ paddingBottom: "20px" }}>Min Beställning</h2>
+        <h2 style={{ paddingBottom: "20px", paddingTop: "30px" }}>
+          Min Beställning
+        </h2>
         <div
           className="order-menu-container-list-scroll"
-          style={{ height: "400px" }}
+          style={{ height: "380px" }}
         >
           {cartItems?.map((c, index) => (
             <MyOrderItem
@@ -35,6 +20,7 @@ function MyOrder({ cartItems, totalPrice, localStorageUpdated }) {
               localStorageUpdated={() => {
                 localStorageUpdated();
               }}
+              parentSource={parentSource}
             />
           ))}
         </div>
@@ -51,23 +37,31 @@ function MyOrder({ cartItems, totalPrice, localStorageUpdated }) {
           <p style={{ fontSize: "18px" }}>{totalPrice} kr</p>
         </div>
 
-        <Link to="/payment">
-          <button style={{ marginTop: "15px" }}>Gå till kassan</button>
-        </Link>
+        {parentSource.toLowerCase() === "order" ? (
+          <Link to="/payment">
+            <button>Gå till kassan</button>
+          </Link>
+        ) : (
+          <Link to="/order">
+            <button>Ändra beställning</button>
+          </Link>
+        )}
       </div>
     );
   } else {
     return (
       <div className="my-order-container">
-        <h2 style={{ paddingBottom: "20px" }}>Min Beställning</h2>
+        <h2 style={{ paddingBottom: "20px", paddingTop: "30px" }}>
+          Min Beställning
+        </h2>
         <div
           className="order-menu-container-list-scroll"
-          style={{ height: "400px" }}
+          style={{ height: "380px" }}
         >
           <p>Varukorgen är tom!</p>
         </div>
         <Link to="/payment" className="disabled-link">
-          <button style={{ marginTop: "15px" }}>Gå till kassan</button>
+          <button>Gå till kassan</button>
         </Link>
       </div>
     );

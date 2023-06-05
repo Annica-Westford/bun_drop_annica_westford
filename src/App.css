@@ -34,6 +34,10 @@ h4 {
   margin: 0;
 }
 
+label {
+  color: #ffe8d2;
+}
+
 p {
   margin: 0px;
   font-size: 15px;
@@ -54,7 +58,7 @@ button {
   background-color: rgba(255, 160, 122, 0.9);
   border: none;
   border-radius: 20px;
-  padding: 10px 35px;
+  padding: 5px 35px;
   color: #ffe8d2;
   cursor: pointer;
 }
@@ -196,7 +200,8 @@ h3 {
   border-bottom: 1px dotted #ffa07a;
 }
 
-.order-parent-container {
+.order-parent-container,
+.payment-parent-container {
   display: grid;
   grid-template-columns: 2fr 1fr;
 }

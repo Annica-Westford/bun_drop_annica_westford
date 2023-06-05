@@ -1,4 +1,11 @@
 export class localStorageManager {
+  static getLocalStorage() {
+    const storedCartItems = localStorage.getItem("cartItems");
+    if (storedCartItems) {
+      return JSON.parse(storedCartItems);
+    }
+  }
+
   static addToLocalStorage(item) {
     let cartItems = localStorage.getItem("cartItems");
 

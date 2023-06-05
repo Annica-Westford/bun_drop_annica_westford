@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useItems } from "../hooks/useItems";
 import OrderMenuList from "../components/OrderMenuList";
 import MyOrder from "../components/MyOrder";
+import { localStorageManager } from "../services/localStorageManager";
 
 function Order() {
   const { burgers, sides, drinks } = useItems();
@@ -9,29 +10,18 @@ function Order() {
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
-    getLocalStorage();
+    setCartItems(localStorageManager.getLocalStorage());
   }, []);
 
   useEffect(() => {
-    getTotalPrice();
-  }, [cartItems]);
-
-  function localStorageUpdated() {
-    getLocalStorage();
-  }
-
-  function getLocalStorage() {
-    const storedCartItems = localStorage.getItem("cartItems");
-    if (storedCartItems) {
-      setCartItems(JSON.parse(storedCartItems));
-    }
-  }
-
-  function getTotalPrice() {
     if (cartItems) {
       const sum = cartItems.reduce((acc, item) => acc + item.totalPrice, 0);
       setTotalPrice(sum);
     }
+  }, [cartItems]);
+
+  function localStorageUpdated() {
+    setCartItems(localStorageManager.getLocalStorage());
   }
 
   return (
@@ -65,6 +55,7 @@ function Order() {
             cartItems={cartItems}
             totalPrice={totalPrice}
             localStorageUpdated={localStorageUpdated}
+            parentSource="Order"
           />
         </div>
       </div>
