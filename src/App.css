@@ -7,7 +7,8 @@ body {
 
 body,
 a,
-button {
+button,
+input {
   font-family: "Oswald", sans-serif;
 }
 
@@ -36,6 +37,7 @@ h4 {
 
 label {
   color: #ffe8d2;
+  font-size: 14px;
 }
 
 p {
@@ -58,7 +60,7 @@ button {
   background-color: rgba(255, 160, 122, 0.9);
   border: none;
   border-radius: 20px;
-  padding: 5px 35px;
+  padding: 5px 40px;
   color: #ffe8d2;
   cursor: pointer;
 }
@@ -77,6 +79,39 @@ footer {
   position: fixed;
   padding: 10px;
   color: #ffa07a;
+}
+
+/* .burger-background-home-container {
+  padding: 35px 60px;
+  background-color: rgba(255, 160, 122, 0.5);
+} */
+
+.lightest-color,
+h1,
+h2,
+h4,
+p,
+span {
+  color: #ffe8d2;
+}
+
+input::placeholder {
+  color: #86543c;
+}
+
+p,
+h3 {
+  font-weight: 300;
+}
+
+input {
+  padding: 10px;
+  margin: 10px 0px;
+  border-radius: 10px;
+  background-color: rgba(255, 232, 210, 0.8);
+  border: none;
+  color: #2b2529;
+  font-size: 15px;
 }
 
 .app {
@@ -141,25 +176,6 @@ footer {
   border-radius: 20px;
 }
 
-/* .burger-background-home-container {
-  padding: 35px 60px;
-  background-color: rgba(255, 160, 122, 0.5);
-} */
-
-.lightest-color,
-h1,
-h2,
-h4,
-p,
-span {
-  color: #ffe8d2;
-}
-
-p,
-h3 {
-  font-weight: 300;
-}
-
 .page-container {
   display: flex;
   flex-direction: column;
@@ -221,6 +237,7 @@ h3 {
 
 .my-order-container {
   overflow: auto;
+  border-left: 1px solid #ffa07a;
 }
 
 .order-items-container {
@@ -275,6 +292,36 @@ h3 {
 .disabled-link {
   pointer-events: none;
   opacity: 0.5;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  padding: 10px;
+  margin-top: 30px;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  width: 500px;
+}
+
+.column {
+  flex: 1;
+  margin-right: 10px;
+}
+
+/* .column:last-child {
+  margin-right: 0;
+} */
+
+.input-container {
+  display: flex;
+  flex-direction: column;
 }
 
 ::-webkit-scrollbar {

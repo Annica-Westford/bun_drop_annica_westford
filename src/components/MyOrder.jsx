@@ -6,12 +6,12 @@ function MyOrder({ cartItems, totalPrice, localStorageUpdated, parentSource }) {
   if (cartItems.length > 0) {
     return (
       <div className="my-order-container">
-        <h2 style={{ paddingBottom: "20px", paddingTop: "30px" }}>
+        <h2 style={{ paddingBottom: "20px", paddingTop: "50px" }}>
           Min Beställning
         </h2>
         <div
           className="order-menu-container-list-scroll"
-          style={{ height: "380px" }}
+          style={{ height: "350px" }}
         >
           {cartItems?.map((c, index) => (
             <MyOrderItem
@@ -51,12 +51,12 @@ function MyOrder({ cartItems, totalPrice, localStorageUpdated, parentSource }) {
   } else {
     return (
       <div className="my-order-container">
-        <h2 style={{ paddingBottom: "20px", paddingTop: "30px" }}>
+        <h2 style={{ paddingBottom: "20px", paddingTop: "50px" }}>
           Min Beställning
         </h2>
         <div
           className="order-menu-container-list-scroll"
-          style={{ height: "380px" }}
+          style={{ height: "350px" }}
         >
           <p>Varukorgen är tom!</p>
         </div>

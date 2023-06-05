@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MyOrder from "../components/MyOrder";
 import { localStorageManager } from "../services/localStorageManager";
-import PaymentForm from "../components/PaymentForm";
+import PersonalInfoForm from "../components/PersonalInfoForm";
 
 function Payment() {
   const [cartItems, setCartItems] = useState([]);
@@ -22,9 +22,10 @@ function Payment() {
     <div className="flex-container-whole-page">
       <div className="page-container">
         <div className="payment-parent-container">
-          <div className="payment-container">
-            <h1>BETALNING</h1>
-            <PaymentForm />
+          <div>
+            <div>
+              <PersonalInfoForm />
+            </div>
           </div>
           <div>
             <MyOrder
