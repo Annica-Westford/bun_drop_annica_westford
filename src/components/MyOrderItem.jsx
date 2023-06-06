@@ -17,7 +17,7 @@ function MyOrderItem({ item, localStorageUpdated, parentSource }) {
   if (parentSource.toLowerCase() === "order") {
     return (
       <div
-        className="menu-item-parent-container"
+        className="my-order-item-parent-container"
         style={{ flexDirection: "column" }}
       >
         <div
@@ -59,7 +59,7 @@ function MyOrderItem({ item, localStorageUpdated, parentSource }) {
   } else {
     return (
       <div
-        className="menu-item-parent-container"
+        className="my-order-item-parent-container"
         style={{ flexDirection: "column" }}
       >
         <div

@@ -9,6 +9,7 @@ function Input({ id, label, type, value, errorMessage, onChange }) {
         value={value}
         placeholder={label}
         onChange={onChange}
+        // required
       ></input>
       <span style={{ fontSize: "12px", color: "#ffc8a3" }}>{errorMessage}</span>
     </div>

@@ -15,6 +15,12 @@ function Home() {
           </h1>
         </div>
         <div>
+          <p style={{ marginBottom: "10px" }}>
+            Välkommen till Bun Drop - där burgare blir nördig matkonst! <br />{" "}
+            Vi levererar direkt till din dörr/fönster/balkong med våra drönare
+            Mats, Ingela och Bengt-Åke. <br /> Upplev framtidens matupplevelse
+            hos oss!
+          </p>
           <h2
             style={{
               marginBottom: "20px",

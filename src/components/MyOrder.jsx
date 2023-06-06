@@ -55,7 +55,7 @@ function MyOrder({ cartItems, totalPrice, localStorageUpdated, parentSource }) {
           Min Beställning
         </h2>
         <div
-          className="order-menu-container-list-scroll"
+          className="my-order-menu-container-list-scroll"
           style={{ height: "350px" }}
         >
           <p>Varukorgen är tom!</p>

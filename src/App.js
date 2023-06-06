@@ -7,6 +7,7 @@ import Payment from "./pages/Payment";
 import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Confirmation from "./pages/Confirmation";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/menu" element={<Menu />} />
         <Route path="/order" element={<Order />} />
         <Route path="/payment" element={<Payment />} />
+        <Route path="/confirmation" element={<Confirmation />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />

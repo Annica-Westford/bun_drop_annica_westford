@@ -5,7 +5,7 @@ function OrderMenuList({ title, items, localStorageUpdated }) {
   return (
     <>
       <h2>{title}</h2>
-      <div className="order-items-container">
+      <div className="order-menu-items-container">
         {items?.map((i) => (
           <OrderMenuListItem
             key={i.id}

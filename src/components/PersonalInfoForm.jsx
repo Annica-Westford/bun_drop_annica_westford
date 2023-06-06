@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Input from "./Input";
 
-function PersonalInfoForm() {
+function PersonalInfoForm({ onValidSubmit }) {
   const [firstName, setFirstName] = useState("");
   const [firstNameError, setFirstNameError] = useState("");
 
@@ -17,7 +17,7 @@ function PersonalInfoForm() {
   const [postalCode, setPostalCode] = useState("");
   const [postalCodeError, setPostalCodeError] = useState("");
 
-  const [isValidForm, setIsValidForm] = useState(false);
+  // const [isValidSubmit, setIsValidSubmit] = useState(false);
 
   function validateFirstName(input) {
     if (input.trim().length < 2 || !/^[a-zA-Z]+$/.test(input.trim())) {
@@ -39,7 +39,7 @@ function PersonalInfoForm() {
     //check so that input contains at least one letter and a 5 digit postal code
     if (input.trim().length === 0) {
       setAddressError("Adress är obligatoriskt");
-    } else if (!/[a-zA-Z]+/.test(input) || !/\d{5}/.test(input)) {
+    } else if (!/[a-zA-Z]+/.test(input) || !/\d{5}/.test(input.trim())) {
       setAddressError("Adressen måste innehålla både gatuadress och husnummer");
     } else {
       setAddressError("");
@@ -57,7 +57,7 @@ function PersonalInfoForm() {
   function validatePostalCode(input) {
     if (input.trim().length === 0) {
       setPostalCodeError("Postnummer är obligatoriskt");
-    } else if (!/^\d{5}$/.test(input)) {
+    } else if (!/^\d{5}$/.test(input.trim())) {
       setPostalCodeError("Postnumret måste vara ett femsiffrigt nummer");
     } else {
       setPostalCodeError("");
@@ -103,6 +103,7 @@ function PersonalInfoForm() {
     validateCity(city);
     validatePostalCode(postalCode);
 
+    //if there are no error messages, ie all inputs are ok
     if (
       !firstNameError &&
       !lastNameError &&
@@ -110,18 +111,14 @@ function PersonalInfoForm() {
       !cityError &&
       !postalCodeError
     ) {
-      //om där inte finns några felmeddelanden så är allt ok
-      //enabla knappen "Gå vidare"
-      //innebär att jag måste disabla den som default
       //behöver förmodligen skicka en bool till parentkomponenten så att den vet att betalningsinfon ska displayas
       //Typ isValidForm är true
-      setIsValidForm(true);
+      onValidSubmit(true);
     }
   }
 
   return (
-    <div className="form-container">
-      <h1>BETALNING</h1>
+    <>
       <h2>Personuppgifter</h2>
       <form onSubmit={handleSubmit}>
         <div className="row">
@@ -173,7 +170,7 @@ function PersonalInfoForm() {
             <Input
               id="postalcode-input"
               label="Postnummer (ex: 22736)*"
-              type="number"
+              type="text"
               value={postalCode || ""}
               errorMessage={postalCodeError}
               onChange={handlePostalCodeChange}
@@ -182,10 +179,12 @@ function PersonalInfoForm() {
         </div>
 
         <div>
-          <button type="submit">Gå vidare</button>
+          <button style={{ marginTop: "10px" }} type="submit">
+            Gå vidare
+          </button>
         </div>
       </form>
-    </div>
+    </>
   );
 }
 
