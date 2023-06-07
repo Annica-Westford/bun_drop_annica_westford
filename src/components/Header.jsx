@@ -6,6 +6,7 @@ import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
   const [currentPage, setCurrentPage] = useState("home");
+
   return (
     <div className="header-container">
       <Link to="/">

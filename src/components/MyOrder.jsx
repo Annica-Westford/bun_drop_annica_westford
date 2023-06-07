@@ -11,7 +11,7 @@ function MyOrder({ cartItems, totalPrice, localStorageUpdated, parentSource }) {
         </h2>
         <div
           className="order-menu-container-list-scroll"
-          style={{ height: "350px" }}
+          style={{ height: "370px" }}
         >
           {cartItems?.map((c, index) => (
             <MyOrderItem
@@ -56,7 +56,7 @@ function MyOrder({ cartItems, totalPrice, localStorageUpdated, parentSource }) {
         </h2>
         <div
           className="my-order-menu-container-list-scroll"
-          style={{ height: "350px" }}
+          style={{ height: "370px" }}
         >
           <p>Varukorgen är tom!</p>
         </div>

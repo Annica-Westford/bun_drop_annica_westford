@@ -3,7 +3,7 @@ import MyOrder from "../components/MyOrder";
 import { localStorageManager } from "../services/localStorageManager";
 import PersonalInfoForm from "../components/PersonalInfoForm";
 import PaymentForm from "../components/PaymentForm";
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 
 function Payment() {
   const [cartItems, setCartItems] = useState([]);
@@ -11,6 +11,7 @@ function Payment() {
   const [isValidPersonalInfoForm, setIsValidPersonalInfoForm] = useState(false);
   const [isValidPaymentForm, setIsValidPaymentForm] = useState(false);
   const [navigateToConfirmation, setNavigateToConfirmation] = useState(false);
+  const [currentComponent, setCurrentComponent] = useState("personalInfoForm");
 
   useEffect(() => {
     setCartItems(localStorageManager.getLocalStorage());
@@ -47,7 +48,23 @@ function Payment() {
     <div className="flex-container-whole-page">
       <div className="page-container">
         <div className="payment-parent-container">
-          <div className="form-container">
+          <div className="form-container grid-item-border">
+            <Link to="/order">
+              <button className="go-back-btn">Gå tillbaka</button>
+            </Link>
+            {/* {!isValidPersonalInfoForm ? (
+              <Link to="/order">
+                <button className="go-back-btn">Gå tillbaka</button>
+              </Link>
+            ) : (
+              <button
+                className="go-back-btn"
+                onClick={() => setIsValidPersonalInfoForm(false)}
+              >
+                Gå tillbaka
+              </button>
+            )} */}
+
             <h1>BETALNING</h1>
             {!isValidPersonalInfoForm ? (
               <PersonalInfoForm
