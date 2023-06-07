@@ -3,6 +3,8 @@ import CardPaymentForm from "./CardPaymentForm";
 import SwishPaymentForm from "./SwishPaymentForm";
 
 function PaymentForm({ onValidSubmit }) {
+  //TODO - lägg in loggor för swish och kort
+
   //måste ha en gå tillbaka till personuppgifter-knapp här
   const [paymentMethod, setPaymentMethod] = useState("");
 
@@ -42,11 +44,6 @@ function PaymentForm({ onValidSubmit }) {
         {paymentMethod === "swish" && (
           <SwishPaymentForm onValidSubmit={onValidSubmit} />
         )}
-        {/* <div>
-          <button style={{ marginTop: "10px" }} type="submit">
-            Gå vidare
-          </button>
-        </div> */}
       </div>
     </>
   );

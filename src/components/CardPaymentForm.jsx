@@ -1,73 +1,104 @@
 import React, { useState } from "react";
-import Input from "./Input";
 
 function CardPaymentForm({ onValidSubmit }) {
-  const [cardNumber, setCardNumber] = useState("");
-  const [cardNumberError, setCardNumberError] = useState("");
+  const [paymentInfo, setPaymentInfo] = useState({});
+  const [errorMessages, setErrorMessages] = useState([
+    {
+      name: "cardNumber",
+      errorMessage: "Kortnumret får endast innehålla siffror",
+    },
+    {
+      name: "expirationDate",
+      errorMessage: "Utgångsdatumet måste matcha formatet: YYMM",
+    },
+    {
+      name: "cvc",
+      errorMessage: "CVC måste vara ett tre- eller fyrsiffrigt nummer",
+    },
+  ]);
 
-  const [expirationDate, setExpirationDate] = useState("");
-  const [expirationDateError, setExpirationDateError] = useState("");
+  function handlePaymentInput(e, propertyName) {
+    setPaymentInfo({ ...paymentInfo, [propertyName]: e.target.value });
+    validateInput(e.target.value, propertyName);
+  }
 
-  const [cvc, setCvc] = useState("");
-  const [cvcError, setCvcError] = useState("");
+  function validateInput(input, propertyName) {
+    const updatedErrorMessages = [...errorMessages];
+    const errorIndex = updatedErrorMessages.findIndex(
+      (e) => e.name === propertyName
+    );
 
-  function validateCardNumber(input) {
-    if (input.trim().length === 0) {
-      setCardNumberError("Kortnummer är obligatoriskt");
-    } else if (!/^\d*$/.test(input.trim())) {
-      setCardNumberError("Kortnumret får endast innehålla siffror");
-    } else {
-      setCardNumberError("");
+    switch (propertyName) {
+      case "cardNumber": {
+        if (input.trim().length === 0 || !/^\d*$/.test(input.trim())) {
+          // Add error message if it doesn't exist
+          if (errorIndex === -1) {
+            updatedErrorMessages.push({
+              name: propertyName,
+              errorMessage: "Kortnumret får endast innehålla siffror",
+            });
+          }
+        } else {
+          // Remove error message if it exists
+          if (errorIndex !== -1) {
+            updatedErrorMessages.splice(errorIndex, 1);
+          }
+        }
+        setErrorMessages(updatedErrorMessages);
+        break;
+      }
+
+      case "expirationDate": {
+        if (
+          input.trim().length === 0 ||
+          !/^(\d{2})(0[1-9]|1[0-2])$/.test(input.trim())
+        ) {
+          // Add error message if it doesn't exist
+          if (errorIndex === -1) {
+            updatedErrorMessages.push({
+              name: propertyName,
+              errorMessage: "Utgångsdatumet måste matcha formatet: YYMM",
+            });
+          }
+        } else {
+          // Remove error message if it exists
+          if (errorIndex !== -1) {
+            updatedErrorMessages.splice(errorIndex, 1);
+          }
+        }
+        setErrorMessages(updatedErrorMessages);
+        break;
+      }
+      case "cvc": {
+        if (
+          input.trim().length === 0 ||
+          !/^\d{3}$|^\d{4}$/.test(input.trim())
+        ) {
+          // Add error message if it doesn't exist
+          if (errorIndex === -1) {
+            updatedErrorMessages.push({
+              name: propertyName,
+              errorMessage: "CVC måste vara ett tre- eller fyrsiffrigt nummer",
+            });
+          }
+        } else {
+          // Remove error message if it exists
+          if (errorIndex !== -1) {
+            updatedErrorMessages.splice(errorIndex, 1);
+          }
+        }
+        setErrorMessages(updatedErrorMessages);
+        break;
+      }
+      default: {
+        break;
+      }
     }
-  }
-
-  function validateExpirationDate(input) {
-    if (input.trim().length === 0) {
-      setExpirationDateError("Utgångsdatum är obligatoriskt");
-    } else if (!/^(\d{2})(0[1-9]|1[0-2])$/.test(input.trim())) {
-      setExpirationDateError("Utgångsdatumet måste matcha formatet: YYMM");
-    } else {
-      setExpirationDateError("");
-    }
-  }
-
-  function validateCvc(input) {
-    if (input.trim().length === 0) {
-      setCvcError("CVC är obligatoriskt");
-    } else if (!/^\d{3}$|^\d{4}$/.test(input.trim())) {
-      setCvcError("CVC måste vara ett tre- eller fyrsiffrigt nummer");
-    } else {
-      setCvcError("");
-    }
-  }
-
-  function handleCardNumberChange(e) {
-    const input = e.target.value;
-    setCardNumber(input);
-    validateCardNumber(input);
-  }
-
-  function handleExpirationDateChange(e) {
-    const input = e.target.value;
-    setExpirationDate(input);
-    validateExpirationDate(input);
-  }
-
-  function handleCvcChange(e) {
-    const input = e.target.value;
-    setCvc(input);
-    validateCvc(input);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    validateCardNumber(cardNumber);
-    validateExpirationDate(expirationDate);
-    validateCvc(cvc);
-
-    // if there are no error messages, ie all inputs are ok
-    if (!cardNumberError && !expirationDateError && !cvcError) {
+    if (errorMessages.length === 0) {
       onValidSubmit(true);
     }
   }
@@ -76,36 +107,56 @@ function CardPaymentForm({ onValidSubmit }) {
     <form onSubmit={handleSubmit}>
       <div className="row">
         <div className="column">
-          <Input
-            id="cardnumber-input"
-            label="Kortnummer"
-            type="text"
-            value={cardNumber || ""}
-            errorMessage={cardNumberError}
-            onChange={handleCardNumberChange}
-          />
+          <div className="input-container">
+            <label htmlFor="cardnumber-input">Kortnummer*</label>
+            <input
+              id="cardnumber-input"
+              type="text"
+              placeholder="Kortnummer*"
+              onChange={(e) => {
+                handlePaymentInput(e, "cardNumber");
+              }}
+            ></input>
+            <span style={{ fontSize: "12px", color: "#ffc8a3" }}>
+              {errorMessages.find((e) => e.name === "cardNumber")
+                ?.errorMessage || ""}
+            </span>
+          </div>
         </div>
       </div>
       <div className="row">
         <div className="column">
-          <Input
-            id="expirationdate-input"
-            label="Utgångsdatum (YYMM)"
-            type="text"
-            value={expirationDate || ""}
-            errorMessage={expirationDateError}
-            onChange={handleExpirationDateChange}
-          />
+          <div className="input-container">
+            <label htmlFor="expirationdate-input">Utgångsdatum (YYMM)*</label>
+            <input
+              id="expirationdate-input"
+              type="text"
+              placeholder="Utgångsdatum (YYMM)*"
+              onChange={(e) => {
+                handlePaymentInput(e, "expirationDate");
+              }}
+            ></input>
+            <span style={{ fontSize: "12px", color: "#ffc8a3" }}>
+              {errorMessages.find((e) => e.name === "expirationDate")
+                ?.errorMessage || ""}
+            </span>
+          </div>
         </div>
         <div className="column">
-          <Input
-            id="cvc-input"
-            label="CVC"
-            type="text"
-            value={cvc || ""}
-            errorMessage={cvcError}
-            onChange={handleCvcChange}
-          />
+          <div className="input-container">
+            <label htmlFor="cvc-input">CVC*</label>
+            <input
+              id="cvc-input"
+              type="text"
+              placeholder="CVC*"
+              onChange={(e) => {
+                handlePaymentInput(e, "cvc");
+              }}
+            ></input>
+            <span style={{ fontSize: "12px", color: "#ffc8a3" }}>
+              {errorMessages.find((e) => e.name === "cvc")?.errorMessage || ""}
+            </span>
+          </div>
         </div>
       </div>
       <div>

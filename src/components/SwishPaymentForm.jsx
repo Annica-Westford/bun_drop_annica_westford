@@ -1,14 +1,15 @@
 import React, { useState } from "react";
-import Input from "./Input";
 function SwishPaymentForm({ onValidSubmit }) {
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [phoneNumberError, setPhoneNumberError] = useState("");
+  const [phoneNumberError, setPhoneNumberError] = useState(
+    "Telefonnummer är obligatoriskt får bara innehålla siffror"
+  );
 
   function validatePhoneNumber(input) {
-    if (input.trim().length === 0) {
-      setPhoneNumberError("Mobilnummer är obligatoriskt");
-    } else if (!/^\d*$/.test(input.trim())) {
-      setPhoneNumberError("Telefonnumret får bara innehålla siffror");
+    if (input.trim().length === 0 || !/^\d*$/.test(input.trim())) {
+      setPhoneNumberError(
+        "Mobilnummer är obligatoriskt och får bara innehålla siffror"
+      );
     } else {
       setPhoneNumberError("");
     }
@@ -35,14 +36,18 @@ function SwishPaymentForm({ onValidSubmit }) {
     <form onSubmit={handleSubmit}>
       <div className="row">
         <div className="column">
-          <Input
-            id="phonenumber-input"
-            label="Mobilnummer (ex: 0764523456)"
-            type="text"
-            value={phoneNumber || ""}
-            errorMessage={phoneNumberError}
-            onChange={handlePhoneNumberChange}
-          />
+          <div className="input-container">
+            <label htmlFor="phonenumber-input">Telefonnummer*</label>
+            <input
+              id="phonenumber-input"
+              type="text"
+              placeholder="Telefonnummer*"
+              onChange={handlePhoneNumberChange}
+            ></input>
+            <span style={{ fontSize: "12px", color: "#ffc8a3" }}>
+              {phoneNumberError || ""}
+            </span>
+          </div>
         </div>
       </div>
       <div>

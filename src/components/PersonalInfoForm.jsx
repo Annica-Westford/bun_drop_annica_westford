@@ -1,183 +1,218 @@
-import React, { useEffect, useState } from "react";
-import Input from "./Input";
+import React, { useState } from "react";
 
 function PersonalInfoForm({ onValidSubmit }) {
-  const [firstName, setFirstName] = useState("");
-  const [firstNameError, setFirstNameError] = useState("");
+  const [customer, setCustomer] = useState({});
+  const [errorMessages, setErrorMessages] = useState([
+    {
+      name: "firstName",
+      errorMessage: "Måste vara minst två bokstäver",
+    },
+    {
+      name: "lastName",
+      errorMessage: "Måste vara minst två bokstäver",
+    },
+    {
+      name: "city",
+      errorMessage: "Måste vara minst två bokstäver",
+    },
+    {
+      name: "address",
+      errorMessage: "Måste innehålla både gatuadress och husnummer",
+    },
+    {
+      name: "postalCode",
+      errorMessage: "Måste vara ett femsiffrigt nummer",
+    },
+  ]);
 
-  const [lastName, setLastName] = useState("");
-  const [lastNameError, setLastNameError] = useState("");
+  // const [isValidInputs, setIsValidInputs] = useState(false);
 
-  const [address, setAddress] = useState("");
-  const [addressError, setAddressError] = useState("");
+  function handleCustomerInput(e, propertyName) {
+    setCustomer({ ...customer, [propertyName]: e.target.value });
+    validateInput(e.target.value, propertyName);
+  }
 
-  const [city, setCity] = useState("");
-  const [cityError, setCityError] = useState("");
+  function validateInput(input, propertyName) {
+    const updatedErrorMessages = [...errorMessages];
+    const errorIndex = updatedErrorMessages.findIndex(
+      (e) => e.name === propertyName
+    );
 
-  const [postalCode, setPostalCode] = useState("");
-  const [postalCodeError, setPostalCodeError] = useState("");
+    switch (propertyName) {
+      case "firstName":
+      case "lastName":
+      case "city": {
+        if (input.trim().length < 2 || !/^[a-zA-Z]+$/.test(input.trim())) {
+          // Add error message if it doesn't exist
+          if (errorIndex === -1) {
+            updatedErrorMessages.push({
+              name: propertyName,
+              errorMessage: "Måste vara minst två bokstäver",
+            });
+          }
+        } else {
+          // Remove error message if it exists
+          if (errorIndex !== -1) {
+            updatedErrorMessages.splice(errorIndex, 1);
+          }
+        }
 
-  // const [isValidSubmit, setIsValidSubmit] = useState(false);
+        setErrorMessages(updatedErrorMessages);
+        break;
+      }
+      case "address": {
+        if (
+          input.trim().length === 0 ||
+          !/[a-zA-Z]+/.test(input.trim()) ||
+          !/\d{5}/.test(input.trim())
+        ) {
+          // Add error message if it doesn't exist
+          if (errorIndex === -1) {
+            updatedErrorMessages.push({
+              name: propertyName,
+              errorMessage: "Måste innehålla både gatuadress och husnummer",
+            });
+          }
+        } else {
+          // Remove error message if it exists
+          if (errorIndex !== -1) {
+            updatedErrorMessages.splice(errorIndex, 1);
+          }
+        }
 
-  function validateFirstName(input) {
-    if (input.trim().length < 2 || !/^[a-zA-Z]+$/.test(input.trim())) {
-      setFirstNameError("Förnamn måste vara minst två bokstäver.");
-    } else {
-      setFirstNameError("");
+        setErrorMessages(updatedErrorMessages);
+        break;
+      }
+      case "postalCode": {
+        if (input.trim().length === 0 || !/^\d{5}$/.test(input.trim())) {
+          // Add error message if it doesn't exist
+          if (errorIndex === -1) {
+            updatedErrorMessages.push({
+              name: propertyName,
+              errorMessage: "Måste vara ett femsiffrigt nummer",
+            });
+          }
+        } else {
+          // Remove error message if it exists
+          if (errorIndex !== -1) {
+            updatedErrorMessages.splice(errorIndex, 1);
+          }
+        }
+
+        setErrorMessages(updatedErrorMessages);
+        break;
+      }
+      default: {
+        break;
+      }
     }
-  }
-
-  function validateLastName(input) {
-    if (input.trim().length < 2 || !/^[a-zA-Z]+$/.test(input.trim())) {
-      setLastNameError("Efternamn måste vara minst två bokstäver.");
-    } else {
-      setLastNameError("");
-    }
-  }
-
-  function validateAddress(input) {
-    //check so that input contains at least one letter and a 5 digit postal code
-    if (input.trim().length === 0) {
-      setAddressError("Adress är obligatoriskt");
-    } else if (!/[a-zA-Z]+/.test(input) || !/\d{5}/.test(input.trim())) {
-      setAddressError("Adressen måste innehålla både gatuadress och husnummer");
-    } else {
-      setAddressError("");
-    }
-  }
-
-  function validateCity(input) {
-    if (input.trim().length < 2 || !/^[a-zA-Z]+$/.test(input.trim())) {
-      setCityError("Ort måste vara minst två bokstäver.");
-    } else {
-      setCityError("");
-    }
-  }
-
-  function validatePostalCode(input) {
-    if (input.trim().length === 0) {
-      setPostalCodeError("Postnummer är obligatoriskt");
-    } else if (!/^\d{5}$/.test(input.trim())) {
-      setPostalCodeError("Postnumret måste vara ett femsiffrigt nummer");
-    } else {
-      setPostalCodeError("");
-    }
-  }
-
-  function handleFirstNameChange(e) {
-    const input = e.target.value;
-    setFirstName(input);
-    validateFirstName(input);
-  }
-
-  function handleLastNameChange(e) {
-    const input = e.target.value;
-    setLastName(input);
-    validateLastName(input);
-  }
-
-  function handleAddressChange(e) {
-    const input = e.target.value;
-    setAddress(input);
-    validateAddress(input);
-  }
-
-  function handleCityChange(e) {
-    const input = e.target.value;
-    setCity(input);
-    validateCity(input);
-  }
-
-  function handlePostalCodeChange(e) {
-    const input = e.target.value;
-    setPostalCode(input);
-    validatePostalCode(input);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-
-    validateFirstName(firstName);
-    validateLastName(lastName);
-    validateAddress(address);
-    validateCity(city);
-    validatePostalCode(postalCode);
-
-    //if there are no error messages, ie all inputs are ok
-    if (
-      !firstNameError &&
-      !lastNameError &&
-      !addressError &&
-      !cityError &&
-      !postalCodeError
-    ) {
-      //behöver förmodligen skicka en bool till parentkomponenten så att den vet att betalningsinfon ska displayas
-      //Typ isValidForm är true
+    if (errorMessages.length === 0) {
       onValidSubmit(true);
     }
   }
 
+  console.table(errorMessages);
   return (
     <>
       <h2>Personuppgifter</h2>
       <form onSubmit={handleSubmit}>
         <div className="row">
           <div className="column">
-            <Input
-              id="firstname-input"
-              label="Förnamn*"
-              type="text"
-              value={firstName}
-              errorMessage={firstNameError}
-              onChange={handleFirstNameChange}
-            />
+            <div className="input-container">
+              <label htmlFor="first-name-input">Förnamn*</label>
+              <input
+                id="first-name-input"
+                type="text"
+                placeholder="Förnamn*"
+                onChange={(e) => {
+                  handleCustomerInput(e, "firstName");
+                }}
+              ></input>
+              <span style={{ fontSize: "12px", color: "#ffc8a3" }}>
+                {errorMessages.find((e) => e.name === "firstName")
+                  ?.errorMessage || ""}
+              </span>
+            </div>
           </div>
           <div className="column">
-            <Input
-              id="lastname-input"
-              label="Efternamn*"
-              type="text"
-              value={lastName}
-              errorMessage={lastNameError}
-              onChange={handleLastNameChange}
-            />
+            <div className="input-container">
+              <label htmlFor="lastname-input">Efternamn*</label>
+              <input
+                id="lastname-input"
+                type="text"
+                placeholder="Efternamn*"
+                onChange={(e) => {
+                  handleCustomerInput(e, "lastName");
+                }}
+              ></input>
+              <span style={{ fontSize: "12px", color: "#ffc8a3" }}>
+                {errorMessages.find((e) => e.name === "lastName")
+                  ?.errorMessage || ""}
+              </span>
+            </div>
           </div>
         </div>
         <div className="row">
           <div className="column">
-            <Input
-              id="address-input"
-              label="Adress (gatuadress och husnummer)*"
-              type="text"
-              value={address}
-              errorMessage={addressError}
-              onChange={handleAddressChange}
-            />
+            <div className="input-container">
+              <label htmlFor="lastname-input">
+                Adress (gatunamn och husnummer)*
+              </label>
+              <input
+                id="address-input"
+                type="text"
+                placeholder="Adress (gatunamn och husnummer)*"
+                onChange={(e) => {
+                  handleCustomerInput(e, "address");
+                }}
+              ></input>
+              <span style={{ fontSize: "12px", color: "#ffc8a3" }}>
+                {errorMessages.find((e) => e.name === "address")
+                  ?.errorMessage || ""}
+              </span>
+            </div>
           </div>
         </div>
         <div className="row">
           <div className="column">
-            <Input
-              id="city-input"
-              label="Ort*"
-              type="text"
-              value={city}
-              errorMessage={cityError}
-              onChange={handleCityChange}
-            />
+            <div className="input-container">
+              <label htmlFor="city-input">Ort*</label>
+              <input
+                id="city-input"
+                type="text"
+                placeholder="Ort*"
+                onChange={(e) => {
+                  handleCustomerInput(e, "city");
+                }}
+              ></input>
+              <span style={{ fontSize: "12px", color: "#ffc8a3" }}>
+                {errorMessages.find((e) => e.name === "city")?.errorMessage ||
+                  ""}
+              </span>
+            </div>
           </div>
           <div className="column">
-            <Input
-              id="postalcode-input"
-              label="Postnummer (ex: 22736)*"
-              type="text"
-              value={postalCode || ""}
-              errorMessage={postalCodeError}
-              onChange={handlePostalCodeChange}
-            />
+            <div className="input-container">
+              <label htmlFor="postalcode-input">Postnummer (ex: 23412)*</label>
+              <input
+                id="postalcode-input"
+                type="text"
+                placeholder="Postnummer (ex: 23412)*"
+                onChange={(e) => {
+                  handleCustomerInput(e, "postalCode");
+                }}
+              ></input>
+              <span style={{ fontSize: "12px", color: "#ffc8a3" }}>
+                {errorMessages.find((e) => e.name === "postalCode")
+                  ?.errorMessage || ""}
+              </span>
+            </div>
           </div>
         </div>
-
         <div>
           <button style={{ marginTop: "10px" }} type="submit">
             Gå vidare
