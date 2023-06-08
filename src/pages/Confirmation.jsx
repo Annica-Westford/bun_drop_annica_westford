@@ -75,15 +75,7 @@ function Confirmation() {
               ))}
             </div>
 
-            <div
-              style={{
-                flex: "1",
-                display: "flex",
-                justifyContent: "flex-end",
-                alignItems: "center",
-                padding: "15px 30px 5px 20px",
-              }}
-            >
+            <div className="total-price-container">
               <p style={{ fontSize: "18px" }}>Total: {totalPrice} kr</p>
             </div>
           </div>
