@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import MyOrderItem from "./MyOrderItem";
 
 function MyOrder({ cartItems, totalPrice, localStorageUpdated, parentSource }) {
-  if (cartItems.length > 0) {
+  if (cartItems && cartItems.length > 0) {
     return (
       <div className="my-order-container">
         <h2 style={{ paddingBottom: "20px", paddingTop: "50px" }}>
@@ -28,13 +28,12 @@ function MyOrder({ cartItems, totalPrice, localStorageUpdated, parentSource }) {
           style={{
             flex: "1",
             display: "flex",
-            justifyContent: "space-between",
+            justifyContent: "center",
             alignItems: "center",
             padding: "15px 30px 5px 20px",
           }}
         >
-          <p style={{ fontSize: "18px" }}>Total:</p>
-          <p style={{ fontSize: "18px" }}>{totalPrice} kr</p>
+          <p style={{ fontSize: "18px" }}>Total: {totalPrice} kr</p>
         </div>
 
         {parentSource.toLowerCase() === "order" ? (

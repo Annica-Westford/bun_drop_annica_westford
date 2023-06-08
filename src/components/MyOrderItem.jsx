@@ -70,12 +70,19 @@ function MyOrderItem({ item, localStorageUpdated, parentSource }) {
             alignItems: "center",
           }}
         >
-          <h3 style={{ marginBottom: "0px" }} className="lightest-color">
+          <h3
+            style={{ marginBottom: "0px", fontSize: "18px" }}
+            className="lightest-color"
+          >
             {item.name} x {item.quantity}
           </h3>
-          <div style={{ display: "flex" }}>
-            <p>{item.totalPrice} kr</p>
-          </div>
+          {parentSource.toLowerCase() === "confirmation" ? (
+            <p style={{ fontSize: "18px" }}>{item.totalPrice} kr</p>
+          ) : (
+            <div style={{ display: "flex" }}>
+              <p style={{ fontSize: "18px" }}>{item.totalPrice} kr</p>
+            </div>
+          )}
         </div>
       </div>
     );

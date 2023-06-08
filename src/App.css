@@ -351,6 +351,7 @@ input {
 
 ::-webkit-scrollbar-track {
   background-color: #ffe8d2;
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {

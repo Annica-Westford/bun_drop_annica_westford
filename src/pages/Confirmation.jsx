@@ -1,14 +1,32 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, Navigate } from "react-router-dom";
+import { localStorageManager } from "../services/localStorageManager";
+import MyOrderItem from "../components/MyOrderItem";
 
-//TODO - Displaya beställningen
 //rensa localstorage
 function Confirmation() {
   //get random time in minutes and multiply with 60 to get the total number of seconds
   const [timeLeft, setTimeLeft] = useState(Math.floor(Math.random() * 31) * 60);
+  const [cartItems, setCartItems] = useState([]);
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const location = useLocation();
   const isAllFormsValid = location.state && location.state.propKey;
+
+  useEffect(() => {
+    setCartItems(localStorageManager.getLocalStorage());
+  }, []);
+
+  useEffect(() => {
+    localStorage.clear();
+  }, [cartItems]);
+
+  useEffect(() => {
+    if (cartItems) {
+      const sum = cartItems.reduce((acc, item) => acc + item.totalPrice, 0);
+      setTotalPrice(sum);
+    }
+  }, [cartItems]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -30,21 +48,45 @@ function Confirmation() {
       <div className="flex-container-whole-page">
         <div className="confirmation-container">
           {timeLeft > 0 ? (
-            <p style={{ fontSize: "20px", marginBottom: "20px" }}>
+            <h2 style={{ marginBottom: "20px" }}>
               Woho! Din beställning är genomförd. <br /> Drönaren är framme med
               din mat om{" "}
               {minutes > 0
                 ? `${minutes}:${seconds < 10 ? `0${seconds}` : seconds} minuter`
                 : `${seconds} sekunder`}
-            </p>
+            </h2>
           ) : (
-            <p style={{ fontSize: "20px", marginBottom: "20px" }}>
+            <h2 style={{ marginBottom: "20px" }}>
               Woho! Din beställning är genomförd. <br /> Drönaren är framme med
               din mat nu!
-            </p>
+            </h2>
           )}
+          <div>
+            <h3 style={{ color: "#ffe8d2", fontSize: "22px" }}>
+              Ordersammanfattning
+            </h3>
+            <div style={{ maxHeight: "200px", overflow: "auto" }}>
+              {cartItems?.map((c, index) => (
+                <MyOrderItem
+                  key={index}
+                  item={c}
+                  parentSource={"Confirmation"}
+                />
+              ))}
+            </div>
 
-          <h2>DROP IT LIKE IT'S HOT!</h2>
+            <div
+              style={{
+                flex: "1",
+                display: "flex",
+                justifyContent: "flex-end",
+                alignItems: "center",
+                padding: "15px 30px 5px 20px",
+              }}
+            >
+              <p style={{ fontSize: "18px" }}>Total: {totalPrice} kr</p>
+            </div>
+          </div>
         </div>
       </div>
     );
