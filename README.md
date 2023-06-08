@@ -29,7 +29,7 @@ You can download Node.js from the official website.
 
 When you have installed Node.js you can install npm. Open the command prompt and run
 
-### npm install
+### `npm install`
 
 ## Installation
 
@@ -37,11 +37,11 @@ Download or clone the repository. Navigate to the project directory in the comma
 
 Start the json-server by running
 
-### npm run json-server
+### `npm run json-server`
 
 Start the React project by running
 
-### npm start
+### `npm start`
 
 To visit the app
 
