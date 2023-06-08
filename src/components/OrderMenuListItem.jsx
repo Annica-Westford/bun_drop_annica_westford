@@ -4,15 +4,6 @@ import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { localStorageManager } from "../services/localStorageManager";
 
 function OrderMenuListItem({ item, localStorageUpdated }) {
-  // const [cartItems, setCartItems] = useState([]);
-
-  // useEffect(() => {
-  //   const storedCartItems = localStorage.getItem("cartItems");
-  //   if (storedCartItems) {
-  //     setCartItems(JSON.parse(storedCartItems));
-  //   }
-  // }, []);
-
   function addToLocalStorage() {
     localStorageManager.addToLocalStorage(item);
     localStorageUpdated();

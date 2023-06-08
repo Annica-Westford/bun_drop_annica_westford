@@ -1,8 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap");
 :root {
-  --primary-text-color: #ffe8d2;
-  /* --primary-color-lighter: rgba(255, 160, 122, 0.7);
-  --primary-color-lightest: rgba(255, 160, 122, 0.5); */
+  --primary-color: #ffe8d2;
+  --secondary-color: rgb(255, 160, 122);
 }
 
 body {
@@ -43,7 +42,7 @@ h4 {
 }
 
 label {
-  color: var(--primary-text-color);
+  color: var(--primary-color);
   font-size: 14px;
 }
 
@@ -53,7 +52,6 @@ p {
 
 a {
   text-decoration: none;
-  color: #ffa07a;
   font-size: 20px;
 }
 
@@ -67,6 +65,11 @@ button {
   border: none;
   border-radius: 20px;
   padding: 5px 40px;
+}
+
+button,
+.add-symbol:hover,
+.order-summary-icon {
   cursor: pointer;
 }
 
@@ -80,7 +83,6 @@ footer {
   width: 100%;
   position: fixed;
   padding: 10px;
-  color: #ffa07a;
 }
 
 .lightest-color,
@@ -92,7 +94,13 @@ span,
 button,
 .active,
 .add-symbol:hover {
-  color: var(--primary-text-color);
+  color: var(--primary-color);
+}
+
+a,
+footer,
+.order-summary-icon:hover {
+  color: var(--secondary-color);
 }
 
 input::placeholder {
@@ -191,6 +199,11 @@ input {
 .menu-items-container {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
+}
+
+.menu-items-container,
+.order-menu-container-list-scroll,
+.my-order-container {
   overflow: auto;
 }
 
@@ -221,17 +234,9 @@ input {
   grid-template-columns: 2fr 1fr;
 }
 
-.order-menu-container-list-scroll {
-  overflow: auto;
-}
-
 .order-menu-container > h2 {
   text-align: left;
   padding-left: 50px;
-}
-
-.my-order-container {
-  overflow: auto;
 }
 
 .order-menu-items-container {
@@ -269,18 +274,6 @@ input {
 .add-symbol {
   font-size: 28px;
   color: #ffc8a3;
-}
-
-.add-symbol:hover {
-  cursor: pointer;
-}
-
-.order-summary-icon {
-  cursor: pointer;
-}
-
-.order-summary-icon:hover {
-  color: #ffa07a;
 }
 
 .disabled-link {
@@ -336,11 +329,11 @@ input {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: var(--primary-text-color);
+  background-color: var(--primary-color);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #ffa07a;
+  background-color: var(--secondary-color);
   border-radius: 5px;
 }

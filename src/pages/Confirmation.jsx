@@ -2,11 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useLocation, Navigate } from "react-router-dom";
 import { localStorageManager } from "../services/localStorageManager";
 import MyOrderItem from "../components/MyOrderItem";
+import Countdown from "../components/Countdown";
 
-//rensa localstorage
 function Confirmation() {
-  //get random time in minutes and multiply with 60 to get the total number of seconds
-  const [timeLeft, setTimeLeft] = useState(Math.floor(Math.random() * 31) * 60);
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
 
@@ -28,39 +26,11 @@ function Confirmation() {
     }
   }, [cartItems]);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (timeLeft > 0) {
-        setTimeLeft(timeLeft - 1);
-      }
-    }, 1000);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, [timeLeft]);
-
-  const minutes = Math.floor(timeLeft / 60);
-  const seconds = timeLeft % 60;
-
   if (isAllFormsValid === true) {
     return (
       <div className="flex-container-whole-page">
         <div className="confirmation-container">
-          {timeLeft > 0 ? (
-            <h2 style={{ marginBottom: "20px" }}>
-              Woho! Din beställning är genomförd. <br /> Drönaren är framme med
-              din mat om{" "}
-              {minutes > 0
-                ? `${minutes}:${seconds < 10 ? `0${seconds}` : seconds} minuter`
-                : `${seconds} sekunder`}
-            </h2>
-          ) : (
-            <h2 style={{ marginBottom: "20px" }}>
-              Woho! Din beställning är genomförd. <br /> Drönaren är framme med
-              din mat nu!
-            </h2>
-          )}
+          <Countdown />
           <div>
             <h3 style={{ color: "#ffe8d2", fontSize: "22px" }}>
               Ordersammanfattning
@@ -74,7 +44,6 @@ function Confirmation() {
                 />
               ))}
             </div>
-
             <div className="total-price-container">
               <p style={{ fontSize: "18px" }}>Total: {totalPrice} kr</p>
             </div>

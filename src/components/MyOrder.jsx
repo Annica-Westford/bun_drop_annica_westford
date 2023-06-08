@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MyOrderItem from "./MyOrderItem";
 
@@ -11,7 +10,7 @@ function MyOrder({ cartItems, totalPrice, localStorageUpdated, parentSource }) {
         </h2>
         <div
           className="order-menu-container-list-scroll"
-          style={{ height: "370px" }}
+          style={{ height: "390px" }}
         >
           {cartItems?.map((c, index) => (
             <MyOrderItem
@@ -47,7 +46,7 @@ function MyOrder({ cartItems, totalPrice, localStorageUpdated, parentSource }) {
         </h2>
         <div
           className="my-order-menu-container-list-scroll"
-          style={{ height: "370px" }}
+          style={{ height: "390px" }}
         >
           <p>Varukorgen är tom!</p>
         </div>
