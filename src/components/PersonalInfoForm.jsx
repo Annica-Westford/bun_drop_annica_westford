@@ -116,7 +116,7 @@ function PersonalInfoForm({ onValidSubmit }) {
     }
   }
 
-  console.table(errorMessages);
+  // console.table(errorMessages);
   return (
     <>
       <h2>Personuppgifter</h2>

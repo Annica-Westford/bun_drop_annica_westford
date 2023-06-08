@@ -1,11 +1,16 @@
 import React, { useState } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import logo from "../images/logo color.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 
 function Header() {
-  const [currentPage, setCurrentPage] = useState("home");
+  // const [currentPage, setCurrentPage] = useState("home");
+
+  const location = useLocation();
+  if (location.pathname === "/notfound") {
+    return null;
+  }
 
   return (
     <div className="header-container">

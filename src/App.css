@@ -173,7 +173,8 @@ input {
   justify-content: center;
 }
 
-.home-container {
+.home-container,
+.confirmation-container {
   flex-direction: column;
   text-align: center;
   background-color: rgba(70, 50, 50, 0.8);

@@ -3,15 +3,16 @@ import MyOrder from "../components/MyOrder";
 import { localStorageManager } from "../services/localStorageManager";
 import PersonalInfoForm from "../components/PersonalInfoForm";
 import PaymentForm from "../components/PaymentForm";
-import { Navigate, Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Payment() {
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [isValidPersonalInfoForm, setIsValidPersonalInfoForm] = useState(false);
   const [isValidPaymentForm, setIsValidPaymentForm] = useState(false);
-  const [navigateToConfirmation, setNavigateToConfirmation] = useState(false);
-  const [currentComponent, setCurrentComponent] = useState("personalInfoForm");
+  const [isAllFormsValid, setIsAllFormsValid] = useState(false);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     setCartItems(localStorageManager.getLocalStorage());
@@ -26,9 +27,15 @@ function Payment() {
 
   useEffect(() => {
     if (isValidPersonalInfoForm && isValidPaymentForm) {
-      setNavigateToConfirmation(true);
+      setIsAllFormsValid(true);
     }
   }, [isValidPersonalInfoForm, isValidPaymentForm]);
+
+  useEffect(() => {
+    if (isAllFormsValid) {
+      navigate("/confirmation", { state: { propKey: isAllFormsValid } });
+    }
+  }, [isAllFormsValid, navigate]);
 
   function handleValidSubmitPersonalInfoForm() {
     setIsValidPersonalInfoForm(true);
@@ -38,12 +45,6 @@ function Payment() {
     setIsValidPaymentForm(true);
   }
 
-  if (navigateToConfirmation) {
-    return <Navigate to="/confirmation" />;
-  }
-
-  // console.log(isValidPersonalInfoForm);
-  // console.log(isValidPaymentForm);
   return (
     <div className="flex-container-whole-page">
       <div className="page-container">
@@ -52,19 +53,6 @@ function Payment() {
             <Link to="/order">
               <button className="go-back-btn">Gå tillbaka</button>
             </Link>
-            {/* {!isValidPersonalInfoForm ? (
-              <Link to="/order">
-                <button className="go-back-btn">Gå tillbaka</button>
-              </Link>
-            ) : (
-              <button
-                className="go-back-btn"
-                onClick={() => setIsValidPersonalInfoForm(false)}
-              >
-                Gå tillbaka
-              </button>
-            )} */}
-
             <h1>BETALNING</h1>
             {!isValidPersonalInfoForm ? (
               <PersonalInfoForm
