@@ -20,14 +20,7 @@ function MyOrderItem({ item, localStorageUpdated, parentSource }) {
         className="my-order-item-parent-container"
         style={{ flexDirection: "column" }}
       >
-        <div
-          style={{
-            flex: "1",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
+        <div className="my-order-item-child-container">
           <h3 style={{ marginBottom: "0px" }} className="lightest-color">
             {item.name}
           </h3>
@@ -62,14 +55,7 @@ function MyOrderItem({ item, localStorageUpdated, parentSource }) {
         className="my-order-item-parent-container"
         style={{ flexDirection: "column" }}
       >
-        <div
-          style={{
-            flex: "1",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-          }}
-        >
+        <div className="my-order-item-child-container">
           <h3
             style={{ marginBottom: "0px", fontSize: "18px" }}
             className="lightest-color"

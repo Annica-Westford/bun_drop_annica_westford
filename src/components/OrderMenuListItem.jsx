@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { localStorageManager } from "../services/localStorageManager";
@@ -19,8 +18,7 @@ function OrderMenuListItem({ item, localStorageUpdated }) {
         <p style={{ fontSize: "14px" }}>{item.description}</p>
         <p style={{ textAlign: "center" }}>{item.price} kr</p>
       </div>
-
-      <div className="flex-container" style={{ paddingRight: "7px" }}>
+      <div className="flex-container" style={{ paddingRight: "10px" }}>
         <FontAwesomeIcon
           icon={faCirclePlus}
           className="add-symbol"

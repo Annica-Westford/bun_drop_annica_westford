@@ -60,15 +60,14 @@ a:hover {
 }
 
 button {
-  font-size: 24px;
+  font-size: 22px;
   background-color: rgba(255, 160, 122, 0.9);
   border: none;
-  border-radius: 20px;
+  border-radius: 15px;
   padding: 5px 40px;
 }
 
 button,
-.add-symbol:hover,
 .order-summary-icon {
   cursor: pointer;
 }
@@ -234,6 +233,13 @@ input {
   grid-template-columns: 2fr 1fr;
 }
 
+.my-order-item-child-container {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .order-menu-container > h2 {
   text-align: left;
   padding-left: 50px;
@@ -250,15 +256,19 @@ input {
   display: flex;
   background-color: rgba(255, 160, 122, 0.4);
   border-radius: 20px;
+  margin: 2px;
+  padding-bottom: 5px;
 }
 
 .order-menu-list-item-container:hover {
   background-color: rgba(255, 160, 122, 0.6);
+  transform: scale(1.05);
 }
 
 .order-menu-list-item-child-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   flex: 1;
   text-align: start;
   padding: 5px;
@@ -272,8 +282,13 @@ input {
 }
 
 .add-symbol {
-  font-size: 28px;
+  font-size: 30px;
   color: #ffc8a3;
+}
+
+.add-symbol:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 .disabled-link {
