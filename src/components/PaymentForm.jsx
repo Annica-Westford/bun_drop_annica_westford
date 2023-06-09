@@ -1,11 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import CardPaymentForm from "./CardPaymentForm";
 import SwishPaymentForm from "./SwishPaymentForm";
 
 function PaymentForm({ onValidSubmit }) {
-  //TODO - lägg in loggor för swish och kort
-
-  //måste ha en gå tillbaka till personuppgifter-knapp här
   const [paymentMethod, setPaymentMethod] = useState("");
 
   function handlePaymentMethodChange(e) {
@@ -19,10 +16,8 @@ function PaymentForm({ onValidSubmit }) {
       <div style={{ padding: "10px" }}>
         <div className="row">
           <div
-            className="column"
+            className="column flex-container"
             style={{
-              display: "flex",
-              alignItems: "center",
               justifyContent: "center",
             }}
           >

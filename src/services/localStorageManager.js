@@ -6,6 +6,12 @@ export class localStorageManager {
     }
   }
 
+  static getCartItemsSum() {
+    const cartItems = this.getLocalStorage();
+    const sum = cartItems.reduce((acc, item) => acc + item.totalPrice, 0);
+    return sum;
+  }
+
   static addToLocalStorage(item) {
     let cartItems = localStorage.getItem("cartItems");
 

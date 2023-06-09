@@ -13,18 +13,14 @@ function Confirmation() {
 
   useEffect(() => {
     setCartItems(localStorageManager.getLocalStorage());
+    setTotalPrice(localStorageManager.getCartItemsSum());
   }, []);
 
   useEffect(() => {
-    localStorage.clear();
-  }, [cartItems]);
-
-  useEffect(() => {
-    if (cartItems) {
-      const sum = cartItems.reduce((acc, item) => acc + item.totalPrice, 0);
-      setTotalPrice(sum);
+    if (isAllFormsValid) {
+      localStorage.clear();
     }
-  }, [cartItems]);
+  }, [cartItems, isAllFormsValid]);
 
   if (isAllFormsValid === true) {
     return (

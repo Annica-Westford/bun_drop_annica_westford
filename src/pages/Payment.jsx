@@ -3,47 +3,23 @@ import MyOrder from "../components/MyOrder";
 import { localStorageManager } from "../services/localStorageManager";
 import PersonalInfoForm from "../components/PersonalInfoForm";
 import PaymentForm from "../components/PaymentForm";
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { usePayment } from "../hooks/usePayment";
 
 function Payment() {
   const [cartItems, setCartItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [isValidPersonalInfoForm, setIsValidPersonalInfoForm] = useState(false);
-  const [isValidPaymentForm, setIsValidPaymentForm] = useState(false);
-  const [isAllFormsValid, setIsAllFormsValid] = useState(false);
 
-  const navigate = useNavigate();
+  const {
+    isValidPersonalInfoForm,
+    handleValidSubmitPersonalInfoForm,
+    handleValidSubmitPaymentForm,
+  } = usePayment();
 
   useEffect(() => {
     setCartItems(localStorageManager.getLocalStorage());
+    setTotalPrice(localStorageManager.getCartItemsSum());
   }, []);
-
-  useEffect(() => {
-    if (cartItems) {
-      const sum = cartItems.reduce((acc, item) => acc + item.totalPrice, 0);
-      setTotalPrice(sum);
-    }
-  }, [cartItems]);
-
-  useEffect(() => {
-    if (isValidPersonalInfoForm && isValidPaymentForm) {
-      setIsAllFormsValid(true);
-    }
-  }, [isValidPersonalInfoForm, isValidPaymentForm]);
-
-  useEffect(() => {
-    if (isAllFormsValid) {
-      navigate("/confirmation", { state: { propKey: isAllFormsValid } });
-    }
-  }, [isAllFormsValid, navigate]);
-
-  function handleValidSubmitPersonalInfoForm() {
-    setIsValidPersonalInfoForm(true);
-  }
-
-  function handleValidSubmitPaymentForm() {
-    setIsValidPaymentForm(true);
-  }
 
   return (
     <div className="flex-container-whole-page">

@@ -14,9 +14,8 @@ function Order() {
   }, []);
 
   useEffect(() => {
-    if (cartItems) {
-      const sum = cartItems.reduce((acc, item) => acc + item.totalPrice, 0);
-      setTotalPrice(sum);
+    if (cartItems && cartItems.length > 0) {
+      setTotalPrice(localStorageManager.getCartItemsSum());
     }
   }, [cartItems]);
 
