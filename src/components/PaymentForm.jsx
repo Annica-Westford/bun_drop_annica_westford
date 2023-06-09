@@ -11,7 +11,6 @@ function PaymentForm({ onValidSubmit }) {
 
   return (
     <>
-      <button className="go-back-btn">Gå tillbaka</button>
       <h2>Betalningsuppgifter</h2>
       <div style={{ padding: "10px" }}>
         <div className="row">

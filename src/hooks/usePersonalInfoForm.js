@@ -21,7 +21,7 @@ export function usePersonalInfoForm(onValidSubmit) {
     },
     {
       name: "postalCode",
-      errorMessage: "Måste vara ett femsiffrigt nummer",
+      errorMessage: "Måste vara ett femsiffrigt nummer, utan mellanslag",
     },
   ]);
 
@@ -62,7 +62,7 @@ export function usePersonalInfoForm(onValidSubmit) {
         if (
           input.trim().length === 0 ||
           !/[a-zA-Z]+/.test(input.trim()) ||
-          !/\d{5}/.test(input.trim())
+          !/\d+[A-Za-z]*/.test(input.trim())
         ) {
           // Add error message if it doesn't exist
           if (errorIndex === -1) {
@@ -87,7 +87,8 @@ export function usePersonalInfoForm(onValidSubmit) {
           if (errorIndex === -1) {
             updatedErrorMessages.push({
               name: propertyName,
-              errorMessage: "Måste vara ett femsiffrigt nummer",
+              errorMessage:
+                "Måste vara ett femsiffrigt nummer, utan mellanslag",
             });
           }
         } else {

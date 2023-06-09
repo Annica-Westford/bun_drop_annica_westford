@@ -34,7 +34,7 @@ function MyOrder({ cartItems, totalPrice, localStorageUpdated, parentSource }) {
         </div>
       )}
       {parentSource.toLowerCase() === "order" ? (
-        <Link to="/payment">
+        <Link to="/payment" className={!hasItemsInCart && "disabled-link"}>
           <button>Gå till kassan</button>
         </Link>
       ) : (

@@ -5,6 +5,7 @@ export function useItems() {
   const [burgers, setBurgers] = useState([]);
   const [sides, setSides] = useState([]);
   const [drinks, setDrinks] = useState([]);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -12,7 +13,7 @@ export function useItems() {
         const data = await apiHelper.getData("burgers");
         setBurgers(data);
       } catch (error) {
-        console.log(error);
+        setErrorMessage("Failed to fetch the data...");
       }
     };
 
@@ -25,7 +26,7 @@ export function useItems() {
         const data = await apiHelper.getData("sides");
         setSides(data);
       } catch (error) {
-        console.log(error);
+        setErrorMessage("Failed to fetch the data...");
       }
     };
 
@@ -38,7 +39,7 @@ export function useItems() {
         const data = await apiHelper.getData("drinks");
         setDrinks(data);
       } catch (error) {
-        console.log(error);
+        setErrorMessage("Failed to fetch the data...");
       }
     };
 
@@ -49,5 +50,6 @@ export function useItems() {
     burgers,
     sides,
     drinks,
+    errorMessage,
   };
 }

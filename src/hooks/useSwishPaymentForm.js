@@ -3,7 +3,7 @@ import { useState } from "react";
 export function useSwishPaymentForm(onValidSubmit) {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [phoneNumberError, setPhoneNumberError] = useState(
-    "Telefonnummer är obligatoriskt får bara innehålla siffror"
+    "Mobilnummer är obligatoriskt får bara innehålla siffror"
   );
 
   function validatePhoneNumber(input) {
